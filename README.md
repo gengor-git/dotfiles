@@ -15,4 +15,4 @@ Currently the playbooks only install packages and make some minor config tweaks.
 The dotfiles are not yet installed automatically. I suggest you symlink them
 manually. Folder structure is identially to what you find in the repo.
 
-[Preview](screenshot.png)
+![Preview](screenshot.png)
