@@ -189,6 +189,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 bar {
     status_command i3blocks -c ~/.config/i3blocks/config
     font pango:System San Francisco Display 10
+    position top
 
 	colors {
         background $bg-color
@@ -207,12 +208,14 @@ for_window [class="Skype"] floating enable
 for_window [class="Spotify"] floating enable
 for_window [class="Sxiv"] floating enable
 
-
 # default workspaces
 assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
 assign [class="Firefox"] $workspace2
 assign [class="Code"] $workspace8
+
+# Workaround for Spotify's bad mapping
+for_window [class="Spotify"] move to workspace $workspace9
 
 ## Multimedia Keys
 
@@ -253,7 +256,9 @@ bindsym $mod+Print exec "scrot ~/Bilder/scrot/%Y-%m-%d_%H-%M-%S.png"
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale /usr/share/backgrounds/antergos/83II_by_bo0xVn.jpg
+exec_always --no-startup-id feh --bg-scale ~/dotfiles/wallpaper.jpg
+#1010631.jpg 
+#feh --bg-scale /usr/share/backgrounds/antergos/83II_by_bo0xVn.jpg
 
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
