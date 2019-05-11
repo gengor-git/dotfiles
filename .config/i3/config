@@ -246,7 +246,8 @@ bindsym $mod+F8 exec mocp --next
 bindsym $mod+w exec "/usr/bin/firefox --new-tab https://www.google.com"
 bindsym $mod+n exec "/usr/bin/thunar"
 bindsym $mod+Shift+n exec "~/.local/bin/vscode"
-bindsym $mod+print exec "scrot '%Y-%m-%d_%H-%M_$wx$h.png' -e 'mv $f ~/Bilder/scrot/'"
+bindsym $mod+Print exec "scrot ~/Bilder/scrot/%Y-%m-%d_%H-%M-%S.png"
+#"scrot '~/Bilder/scrot/%Y-%m-%d_%H-%M_$wx$h.png'"
 
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
@@ -260,3 +261,5 @@ exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 2s && kalu"
+exec --no-startup-id "spotify"
+exec --no-startup-id "firefox"
