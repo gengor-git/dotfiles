@@ -40,8 +40,14 @@ arch_packages:
   - powerline
   - python-pip
   - neofetch
+  - lightdm-webkit-theme-litarvan
 
 arch_aur_packages:
+  - spotify
+  - gotop
+  - yay
+
+arch_aur_repos:
   - name: spotify
     repo: https://aur.archlinux.org/spotify.git
   - name: gotop
