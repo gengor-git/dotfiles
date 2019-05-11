@@ -53,3 +53,6 @@ arch_aur_repos:
   - name: gotop
     repo: https://aur.archlinux.org/gotop.git
 
+
+fonts_download:
+  - https://github.com/supermarin/YosemiteSanFranciscoFont/master.zip
