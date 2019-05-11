@@ -35,3 +35,4 @@ arch-packages:
   - feh
   - i3blocks 
   - scrot
+  - powerline
