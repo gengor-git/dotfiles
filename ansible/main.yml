@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: local
+
+  vars_files:
+    - config.packages.yml
+
+  tasks:
+    - include_tasks: tasks.yml

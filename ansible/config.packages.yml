@@ -1,6 +1,6 @@
 ---
 # These are the packages to install
-arch-packages:
+arch_packages:
   - bash-completion 
   - neovim
   - ansible
