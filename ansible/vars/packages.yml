@@ -1,0 +1,36 @@
+---
+arch-packages:
+  - bash-completion 
+  - neovim
+  - ansible
+  - pandoc
+  - rxvt-unicode
+  - git
+  - qutebrowser
+  - ranger
+  - qutebrowser
+  - atool
+  - highlight
+  - w3m
+  - gzip
+  - p7zip
+  - tar
+  - zip
+  - unzip
+  - unrar
+  - ttf-inconsolata
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-fira-code
+  - ttf-fira-mono
+  - ttf-fira-sans
+  - ttf-linux-libertine
+  - ttf-ubuntu-font-family
+  - dkms
+  - linux-headers
+  - arc-gtk-theme 
+  - moka-icon-theme 
+  - thunar
+  - rofi
+  - feh
+  - i3blocks 
