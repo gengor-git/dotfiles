@@ -243,7 +243,7 @@ bindsym $mod+F8 exec mocp --next
 bindsym $mod+w exec "/usr/bin/firefox --new-tab https://www.google.com"
 bindsym $mod+n exec "/usr/bin/thunar"
 bindsym $mod+Shift+n exec "~/.local/bin/vscode"
-bindsym $mod+print "scrot"
+bindsym $mod+print "scrot '%Y-%m-%d_%H-%M_$wx$h.png' -e 'mv $f ~/Bilder/scrot/'"
 
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
