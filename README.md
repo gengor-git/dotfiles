@@ -1,4 +1,4 @@
-# Dotfiles by Martin P. #
+# Dotfiles and Playbooks #
 
 These are my dotfiles together with some Ansible to make the installation
 simpler. It is currently still work in progress und may be unstable to use. As
