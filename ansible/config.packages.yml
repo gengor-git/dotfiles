@@ -27,6 +27,7 @@ arch_packages:
   - ttf-fira-sans
   - ttf-linux-libertine
   - ttf-ubuntu-font-family
+  - ttf-roboto
   - dkms
   - linux-headers
   - arc-gtk-theme 
@@ -38,3 +39,4 @@ arch_packages:
   - scrot
   - powerline
   - python-pip
+  - neofetch
