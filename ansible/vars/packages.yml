@@ -34,3 +34,4 @@ arch-packages:
   - rofi
   - feh
   - i3blocks 
+  - scrot
