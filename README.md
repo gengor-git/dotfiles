@@ -18,3 +18,13 @@ manually. Folder structure is identially to what you find in the repo.
 ![Preview Terminals](screenshot1.png)
 
 ![Preview UI](screenshot2.png)
+
+
+## License ##
+
+My stuff is licensed under GPL 3.
+
+The wallpaper is only in this repo so the scripts are working. I got it from
+Alphacoders and credit goes to the respective creator.
+
+[Alphacoders Link to wallpaper](https://wall.alphacoders.com/big.php?i=1010054)
