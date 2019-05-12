@@ -12,7 +12,7 @@
       powerline-daemon -q
       POWERLINE_BASH_CONTINUATION=1
       POWERLINE_BASH_SELECT=1
-      . /lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh    
+      #. /lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh    
 
 # An AUR plugin will extend our Ansible modules.
 - name: Clone AUR plugin for Ansible
