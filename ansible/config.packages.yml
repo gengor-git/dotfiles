@@ -41,6 +41,7 @@ arch_packages:
   - python-pip
   - neofetch
   - lightdm-webkit-theme-litarvan
+  - gimp
 
 arch_aur_packages:
   - spotify
