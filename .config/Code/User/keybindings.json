@@ -1,0 +1,14 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "tab",
+        "command": "text-tables.gotoNextCell",
+        "when": "tableMode"
+    }
+
+    {
+        "key": "shift+tab",
+        "command": "text-tables.gotoPreviousCell",
+        "when": "tableMode"
+    }
+]

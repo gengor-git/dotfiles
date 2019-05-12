@@ -1,0 +1,211 @@
+{
+	// Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Document head white": {
+		"prefix": "headw",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: FFFFFF",
+			"titlepage-text-color: 1D577E",
+			"titlepage-rule-color: 1D577E",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with white background and blue line."
+	},
+
+	"Document head dark blue": {
+		"prefix": "headb",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: 1D577E",
+			"titlepage-text-color: ffffff",
+			"titlepage-rule-color: ffffff",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with dark blue background and white line."
+	},
+
+	"Document head red": {
+		"prefix": "headr",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: e90f40",
+			"titlepage-text-color: ffffff",
+			"titlepage-rule-color: ffffff",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with red background and white line."
+	},
+
+	"Document head green": {
+		"prefix": "headg",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: 91c32c",
+			"titlepage-text-color: ffffff",
+			"titlepage-rule-color: ffffff",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with green background and white line."
+	},
+
+	"Document head light blue": {
+		"prefix": "headl",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: 0076b2",
+			"titlepage-text-color: ffffff",
+			"titlepage-rule-color: ffffff",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with light blue background and white line."
+	},
+
+	"Document head black": {
+		"prefix": "headk",
+		"body": [
+			"---",
+			"title: \"$1\"",
+			"subtitle: \"$2\"",
+			"author: [$3]",
+			"date: $4",
+			"version: \"V1.0\"",
+			"classification: \"${5:Internal}\"",
+			"tags: [$6]",
+			"titlepage: true",
+			"titlepage-color: 111111",
+			"titlepage-text-color: ffffff",
+			"titlepage-rule-color: e90f40",
+			"titlepage-rule-height: 1",
+			"lang: ${7:en}",
+			"toc: true",
+			"lot: true",
+			"lof: true",
+			"...",
+			"$0"
+		],
+		"description": "Standard header with (almost) black background and white line."
+	},
+
+	"Footnote": {
+		"prefix": "ftn",
+		"body": "[^$1] $0\n\n[^$1]: $2",
+		"description": "Footnote entry"
+	},
+
+	"Image": {
+		"prefix": "img",
+		"body": "![$1]($2)${3:{width=${4:100%}}}$0",
+		"description": "Insert an image."
+	},
+
+	"Weblink": {
+		"prefix": "link",
+		"body": "[$1]($2) $0",
+		"description": "Link to an URL"
+	},
+
+	"Definition": {
+		"prefix": "def",
+		"body": "$1\n\n: $2\n\n$0",
+		"description": "Simple definition."
+	},
+
+	"Asian Support": {
+		"prefix": "asia",
+		"body": "CJKmainfont: \"${1:Arial Unicode MS}\"",
+		"description": "Use Unicode font for Asian characters."
+	},
+	"Font Awesome": {
+		"prefix": "fa",
+		"body": "\\fa$1{} $0",
+		"description": "Enter Latex font awesome icon."
+	},
+	"Inline PlantUML": {
+		"prefix": "puml",
+		"body": "```{.plantuml caption=\"$1\"}$0\n```",
+		"description": "Use inline PlantUML in Markdown codeblocks."
+	}
+}

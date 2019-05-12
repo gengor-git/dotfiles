@@ -1,0 +1,72 @@
+{
+	// Place your snippets for diagram here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Arvato Colors Process": {
+		"prefix": "arvato-ci-process",
+		"body": [
+		"skinparam ActivityBackgroundColor #0076b2",
+		"skinparam ActivityDiamondBackgroundColor #ffc105",
+		"skinparam ActivityDiamondBorderColor #646464",
+		"skinparam ActivityBorderColor #646464",
+		"skinparam NoteBorderColor #646464",
+		"skinparam NoteBackgroundColor #EAEAEA",
+		"skinparam ActivityFontColor White",
+		"skinparam DefaultFontName Dejavu Sans",
+		],
+		"description": "PlantUML Arvato CI for process diagrams."
+	},
+	"Arvato Colors System" : {
+		"prefix": "arvato-ci-component",
+		"body": [
+		"skinparam NodeBackgroundColor #0076b2",
+		"skinparam NodeBorderColor White",
+		"skinparam NodeFontColor White",
+		"skinparam FolderBackgroundColor #CCE4F0",
+		"skinparam FolderBorderColor Grey",
+		"skinparam DatabaseBackgroundColor #CCE4F0",
+		"skinparam DatabaseBorderColor Grey",
+		"skinparam ComponentBackgroundColor #CCE4F0",
+		"skinparam ComponentBorderColor Grey",
+		"skinparam NoteBackgroundColor #EAEAEA",
+		"skinparam NoteBorderColor Grey",
+		"skinparam ArrowColor DarkSlateGrey",
+		],
+		"description": "PlantUML Arvato CI for system diagrams."
+	},
+	"PlantUML head" : {
+		"prefix": "puml",
+		"body": "@startuml ${1:name}\n\ntitle $2\n\n$0\n\n@enduml",
+		"description": "PlantUML default head"
+	},
+	"Sprites" : {
+		"prefix": "sprites",
+		"body": "!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.0.0\n!includeurl ICONURL/common.puml\n$0",
+		"description": "External sprites for PlantUML."
+	},
+	"font-awesome-5" : {
+		"prefix": "fa5",
+		"body": "!includeurl ICONURL/font-awesome-5/$1.puml\n$0",
+		"description": "Include statement for external font awesome 5 icon."
+	},
+	"font-awesome-4" : {
+		"prefix": "fa4",
+		"body": "!include <font-awesome/$1>$0",
+		"description": "Include statement for internal font awesome 4 icons."
+	},
+	"devicon" :  {
+		"prefix": "devicon",
+		"body": "!include <devicons/$1>$0",
+		"description": "Include statement for internal devicons."
+	}
+}

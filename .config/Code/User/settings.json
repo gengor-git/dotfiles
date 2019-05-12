@@ -1,0 +1,52 @@
+
+{
+    "editor.fontFamily": "'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "bounded",
+    "editor.wrappingIndent": "indent",
+    "editor.renderIndentGuides": true,
+    "editor.renderWhitespace": "none",
+    "editor.minimap.showSlider": "mouseover",
+    "workbench.iconTheme": "material-icon-theme",
+
+    // Vim settings
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-k>": false,
+        "<C-q>": false,
+        "<C-h>": false
+    },
+    "vim.visualstar": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "f"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+        "before": [":"],
+        "commands": [
+            {
+                "command": "workbench.action.showCommands",
+            }
+        ]
+        }
+    ],
+    "vim.hlsearch": true,
+
+    //-------- Pandoc Option Configuration --------
+    // pandoc .pdf output option template that you would like to use
+    "pandoc.pdfOptString": "--number-sections --data-dir D:\\Dev\\git\\dso-documentation --template eisvogel --pdf-engine=xelatex -V colorlinks --listings -F D:\\Dev\\git\\dso-documentation\\pandoc-filter\\pandoc_plantuml_filter.py",
+    // pandoc .html output option template that you would like to use
+    "pandoc.htmlOptString": "-t html5 -s --data-dir D:\\Dev\\git\\dso-documentation --template=GitHub --toc -F D:\\Dev\\git\\dso-documentation\\pandoc-filter\\pandoc_plantuml_filter.py",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Sublime Material Theme - Dark",
+    "colorHelper.storeDir": "D:\\Dev\\git\\dso-documentation\\colors\\palettes",
+    "vim.disableExtension": false,
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "vim.easymotionMarkerFontFamily": "'Fira Code'",
+    "git.autofetch": true
+}
