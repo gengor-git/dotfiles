@@ -45,15 +45,15 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=Memory
 separator=false
 interval=30
 
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
+#[memory]
+#label=SWAP
+#instance=swap
+#separator=false
+#interval=30
 
 # Disk usage
 #
@@ -61,7 +61,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label= HOME
+label= home
 #instance=/mnt/data
 interval=30
 
@@ -71,17 +71,17 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
 #instance=wlan0
-color=#00FF00
+#color=#e3eaa7
 interval=10
-separator=false
+#separator=false
 
-[wifi]
+#[wifi]
 #instance=wlp3s0
-interval=10
-separator=false
+#interval=10
+#separator=false
 
 [bandwidth]
-label=net
+label=
 instance=enp0s3
 interval=5
 
@@ -101,11 +101,11 @@ min_width=CPU: 100.00%
 # Battery indicator
 #
 # The battery instance defaults to 0.
-[battery]
+#[battery]
 #label=BAT
 #label=⚡
 #instance=1
-interval=30
+#interval=30
 
 # Date Time
 #
@@ -118,10 +118,10 @@ interval=5
 #
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
+[mediaplayer]
+instance=spotify
+interval=5
+signal=10
 
 # OpenVPN support
 #
