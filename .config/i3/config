@@ -255,7 +255,7 @@ bindsym $mod+F8 exec mocp --next
 # App shortcuts
 bindsym $mod+w exec "/usr/bin/firefox --new-tab https://www.google.com"
 bindsym $mod+n exec "/usr/bin/thunar"
-bindsym $mod+Shift+n exec "/usr/bin/pcmanfm"
+bindsym $mod+Shift+n exec "code"
 bindsym $mod+Print exec "scrot ~/Bilder/scrot/%Y-%m-%d_%H-%M-%S.png"
 
 # Redirect sound to headphones
