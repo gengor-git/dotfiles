@@ -4,7 +4,6 @@ These are my dotfiles together with some Ansible to make the installation
 simpler. It is currently still work in progress und may be unstable to use. As
 of now they are only inside my Antergos (Arch OS) Linux VM, running a i3-wm.
 
-
 ## Prerequisits ##
 
 These packages must be installed manually:
@@ -34,6 +33,8 @@ manually. Folder structure is identially to what you find in the repo.
 ![Preview Terminals](screenshot1.png)
 
 ![Preview UI](screenshot2.png)
+
+![Coding is fun](screenshot3.png)
 
 ## Manual Installs ##
 
