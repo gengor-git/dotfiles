@@ -5,6 +5,11 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# Gaps configuration
+for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 15
+
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -249,6 +254,7 @@ bindsym $mod+F8 exec mocp --next
 # App shortcuts
 bindsym $mod+w exec "/usr/bin/firefox --new-tab https://www.google.com"
 bindsym $mod+n exec "/usr/bin/thunar"
+bindsym $mod+Shift+n exec "/usr/bin/pcmanfm"
 bindsym $mod+Print exec "scrot ~/Bilder/scrot/%Y-%m-%d_%H-%M-%S.png"
 
 # Redirect sound to headphones
