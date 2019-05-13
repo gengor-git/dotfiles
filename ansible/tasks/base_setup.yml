@@ -16,27 +16,30 @@
 
 # An AUR plugin will extend our Ansible modules.
 - name: Clone AUR plugin for Ansible
+  become: yes
   git:
     repo: https://github.com/kewlfft/ansible-aur.git
     dest: ~/.ansible/plugins/modules/aur
+  when: install_aur_packages
 
 # Create AUR build user.
 # See plugin homepage for details.
 # https://github.com/kewlfft/ansible-aur
-- user:
+- name: Create AUR build user, as root is not permitted
+  become: yes
+  user:
     name: aur_builder
     group: wheel
-- lineinfile:
+  when: install_aur_packages
+
+- name: Configure AUR user to run pacman
+  become: yes
+  lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
     line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
     create: yes
     validate: 'visudo -cf %s'
-
-# Install AUR packages.
-- name: Install AUR packages.
-  aur: name="{{arch_aur_packages}}" use=makepkg skip_installed=true
-  become: yes
-  become_user: aur_builder
+  when: install_aur_packages
 
 - name: Configure lightdm-theme Litarvan
   become: yes

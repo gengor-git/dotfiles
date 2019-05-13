@@ -1,0 +1,9 @@
+---
+# If you want to install AUR packages using Ansible, set true.
+# It will install an additional Ansible module and then launch
+# the extra script.
+install_aur_packages: yes
+
+# Python dev stuff?
+install_python_dev: yes
+

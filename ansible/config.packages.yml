@@ -42,18 +42,20 @@ arch_packages:
   - neofetch
   - lightdm-webkit-theme-litarvan
   - gimp
+  - sysstat
 
 arch_aur_packages:
-  - spotify
   - gotop
   - yay
+  - visual-studio-code-bin
 
-arch_aur_repos:
-  - name: spotify
-    repo: https://aur.archlinux.org/spotify.git
-  - name: gotop
-    repo: https://aur.archlinux.org/gotop.git
-
+arch_python_dev_packages:
+  - python-pandas
+  - python-xlrd
+  - python-matplotlib
+  - python-pilkit
+  - python-pygraphviz
+  - graphviz
 
 fonts_download:
   - https://github.com/supermarin/YosemiteSanFranciscoFont/master.zip
