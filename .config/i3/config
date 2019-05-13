@@ -212,6 +212,7 @@ for_window [class="Kalu"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="Spotify"] floating enable
 for_window [class="Sxiv"] floating enable
+for_window [class="Gpicview"] floating enable
 
 # default workspaces
 assign [class="Spotify"] $workspace10
