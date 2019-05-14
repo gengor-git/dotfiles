@@ -1,0 +1,10 @@
+---
+# Install Python dev packages.
+- name: Install python packages.
+  pacman: name="{{arch_python_dev_packages}}" state=present
+  become: yes
+
+# Install stuff with pip in user space.
+- name: Install python pip packages.
+  pip: name={{pip_python_packages}} state=present
+

@@ -58,5 +58,8 @@ arch_python_dev_packages:
   - python-pygraphviz
   - graphviz
 
+pip_python_packages:
+  - jira
+
 fonts_download:
   - https://github.com/supermarin/YosemiteSanFranciscoFont/master.zip
