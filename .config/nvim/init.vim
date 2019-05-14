@@ -90,8 +90,8 @@ filetype plugin indent on
 let python_highlight_all=1
 
 set autoindent
-set bg=light
-set background=light
+set bg=dark
+set background=dark
 set backspace=indent,eol,start
 set expandtab
 set ignorecase
@@ -110,14 +110,14 @@ set relativenumber
 set ruler
 set scrolloff=15
 set showmatch
-set shiftwidth=4
+set shiftwidth=2
 set shortmess=I
 set showcmd
 set showmode
 set sidescroll=1
 set sidescrolloff=7
 set smartcase
-set softtabstop=4
+set softtabstop=2
 set undolevels=1000
 
 " change the mapleader from \ to ,
@@ -191,4 +191,4 @@ inoremap jf <Esc>l
 " more colors
 "set termguicolors
 "
-"colorscheme PaperColor
+colorscheme PaperColor
