@@ -1,0 +1,3 @@
+---
+- name: Symlink files to the repo-directory. Backup previous (non linked) files.
+  # Test with https://docs.ansible.com/ansible/latest/modules/stat_module.html
