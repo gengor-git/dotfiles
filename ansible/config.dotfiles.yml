@@ -27,25 +27,25 @@ dotfiles_home:
     linkto: .gitconfig
 
   # Dotfiles in subfolders von .config.
-  dotfiles_config:
-    - name: gtkrc-3
-      directory: gtk-3.0
-      filename: settings.ini
-    - name: i3blocks
-      directory: i3blocks
-      filename: config
-    - name: i3status
-      directory: i3status
-      filename: config
-    - name: i3
-      directory: i3
-      filename: config
-    - name: neovim
-      directory: nvim
-      filename: init.vim
-    - name: Visual Studio Code Settings
-      directory: Code/User
-      filename: settings.json
-    - name: Visual Studio Code Keybinds
-      directory: Code/User
-      filename: keybindings.json
+dotfiles_config:
+  - name: gtkrc-3
+    directory: gtk-3.0
+    filename: settings.ini
+  - name: i3blocks
+    directory: i3blocks
+    filename: config
+  - name: i3status
+    directory: i3status
+    filename: config
+  - name: i3
+    directory: i3
+    filename: config
+  - name: neovim
+    directory: nvim
+    filename: init.vim
+  - name: Visual Studio Code Settings
+    directory: Code/User
+    filename: settings.json
+  - name: Visual Studio Code Keybinds
+    directory: Code/User
+    filename: keybindings.json
