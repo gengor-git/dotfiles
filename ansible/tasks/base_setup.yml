@@ -11,11 +11,13 @@
     remote_src: yes
   tags:
     - fonts
+  register: font_installed
 
 - name: Clear font cache
   become: yes
   command: fc-cache -f -v
   tags: fonts
+  when: font_installed.changed == True
 
 - name: Add powerline to bash config.
   blockinfile:
