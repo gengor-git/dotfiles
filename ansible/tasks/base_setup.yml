@@ -2,7 +2,20 @@
 - name: Install pacman packages.
   become: yes
   pacman: name="{{arch_packages}}" state=present
-  
+
+- name: Install the San Francisco Font to system fonts.
+  become: yes
+  unarchive:
+    src: '{{fonts_download}}'
+    dest: '/usr/share/fonts'
+    remote_src: yes
+  tags:
+    - fonts
+
+- name: Clear font cache
+  become: yes
+  command: fc-cache -f -v
+  tags: fonts
 
 - name: Add powerline to bash config.
   blockinfile:
