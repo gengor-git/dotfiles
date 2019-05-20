@@ -8,9 +8,9 @@
     - config.dotfiles.yml
 
   tasks:
-    - include_tasks: tasks/base_setup.yml
     - include_tasks: tasks/base_dotfiles.yml
       when: symlink_dotfiles|bool
+    - include_tasks: tasks/base_setup.yml
     - include_tasks: tasks/install_aur_packages.yml
       when: install_aur_packages|bool
     - include_tasks: tasks/install_python_packages.yml

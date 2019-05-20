@@ -19,4 +19,4 @@
     state: link
     force: '{{force_overwrite}}'
   with_items: '{{st.results}}'
-  when: item.stat.islnk is not defined or item.stat.islnk == False
+  when: item.stat.islnk is not defined or item.stat.islnk == False and {{force_overwrite}}

@@ -26,9 +26,10 @@ is already present in roots `.ansible` folder.
 
 **Notice:**
 
-Currently the playbooks only install packages and make some minor config tweaks.
-The dotfiles are not yet installed automatically. I suggest you symlink them
-manually. Folder structure is identially to what you find in the repo.
+The playbook will overwrite your configs with symlinks for the dotfiles. Check
+the `config.dotfiles.yml` for the required files. If you do not want this at all
+or just don't want the overwriting, set the matching parameters in the
+`config.settings.yml` to `no`.
 
 ![Preview Terminals](screenshot1.png)
 
@@ -38,7 +39,6 @@ manually. Folder structure is identially to what you find in the repo.
 
 ## Manual Installs ##
 
-- dotfiles linking (or copy)
 - [San Francisco Font](https://github.com/supermarin/YosemiteSanFranciscoFont/)
   (put ttfs into `~/.fonts`)
 
