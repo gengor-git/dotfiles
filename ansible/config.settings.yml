@@ -1,4 +1,9 @@
 ---
+# Symlink the given the dotfiles?
+# Check the config.dotfiles.yml for the exact files.
+symlink_dotfiles: yes
+force_overwrite: yes
+
 # If you want to install AUR packages using Ansible, set true.
 # It will install an additional Ansible module and then launch
 # the extra script.

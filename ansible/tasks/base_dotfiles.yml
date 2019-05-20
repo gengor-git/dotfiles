@@ -1,3 +1,22 @@
 ---
-- name: Symlink files to the repo-directory. Backup previous (non linked) files.
-  # Test with https://docs.ansible.com/ansible/latest/modules/stat_module.html
+- name: Switch to user's home
+  debug: var=lookup('env','HOME')
+
+- name: Test the symlinks
+  become: yes
+  become_user: martin
+  stat:
+    path: '~/{{item.file}}'
+  with_items: '{{dotfiles_home}}'
+  register: st
+
+- name: Symlink dotfiles when needed.
+  become: yes
+  become_user: martin
+  file:
+    src: '~/dotfiles/{{item.item.file}}'
+    dest: '~/{{item.item.linkto}}'
+    state: link
+    force: '{{force_overwrite}}'
+  with_items: '{{st.results}}'
+  when: item.stat.islnk is not defined or item.stat.islnk == False
