@@ -82,8 +82,8 @@ URxvt*foreground: #f8f8f2
 URxvt*background: #272822
 
 # Linux font settings
-URxvt*font: xft:Fira Code Retina:pixelsize=15
-URxvt*boldFont: xft:Fira Code:bold:pixelsize=15
+URxvt*font: xft:Fira Code Retina:pixelsize=16
+URxvt*boldFont: xft:Fira Code:bold:pixelsize=16
 URxvt*letterSpace: -1
 
 # scrollbar - true (default) or false
