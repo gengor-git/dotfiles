@@ -10,6 +10,8 @@
   tasks:
     - include_tasks: tasks/base_dotfiles.yml
       when: symlink_dotfiles|bool
+      tags:
+        - dotfiles
     - include_tasks: tasks/base_setup.yml
       tags:
         - fonts

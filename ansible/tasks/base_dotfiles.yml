@@ -9,14 +9,18 @@
     path: '~/{{item.file}}'
   with_items: '{{dotfiles_home}}'
   register: st
+  tags:
+    - dotfiles
 
 - name: Symlink dotfiles when needed.
   become: yes
   become_user: martin
   file:
-    src: '~/dotfiles/{{item.item.file}}'
-    dest: '~/{{item.item.linkto}}'
+    src: '~/dotfiles/{{item.item.linkto}}'
+    dest: '~/{{item.item.file}}'
     state: link
     force: '{{force_overwrite}}'
   with_items: '{{st.results}}'
-  when: item.stat.islnk is not defined or item.stat.islnk == False and {{force_overwrite}}
+  when: item.stat.islnk is not defined or item.stat.islnk == False and force_overwrite
+  tags:
+    - dotfiles
