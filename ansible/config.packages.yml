@@ -46,6 +46,7 @@ arch_packages:
   - tumbler
   - texlive-core
   - texlive-fontsextra
+  - texlive-latexextra
 
 arch_aur_packages:
   - gotop
