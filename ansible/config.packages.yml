@@ -1,7 +1,7 @@
 ---
 # These are the packages to install
 arch_packages:
-  - bash-completion 
+  - bash-completion
   - neovim
   - ansible
   - pandoc
@@ -30,12 +30,12 @@ arch_packages:
   - ttf-roboto
   - dkms
   - linux-headers
-  - arc-gtk-theme 
-  - moka-icon-theme 
+  - arc-gtk-theme
+  - moka-icon-theme
   - thunar
   - rofi
   - feh
-  - i3blocks 
+  - i3blocks
   - scrot
   - powerline
   - python-pip
@@ -44,6 +44,8 @@ arch_packages:
   - gimp
   - sysstat
   - tumbler
+  - texlive-core
+  - texlive-fontsextra
 
 arch_aur_packages:
   - gotop
@@ -61,4 +63,4 @@ arch_python_dev_packages:
 pip_python_packages:
   - jira
 
-fonts_download: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip 
+fonts_download: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
