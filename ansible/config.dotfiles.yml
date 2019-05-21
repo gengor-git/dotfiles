@@ -25,6 +25,9 @@ dotfiles_home:
   - name: gitconfig
     file: .gitconfig
     linkto: .gitconfig
+  - name: spacemacs
+    file: .spacemacs
+    linkto: .spacemacs
 
   # Dotfiles in subfolders von .config.
 dotfiles_config:
