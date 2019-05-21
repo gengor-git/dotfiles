@@ -9,8 +9,7 @@
     path: '~/{{item.file}}'
   with_items: '{{dotfiles_home}}'
   register: st
-  tags:
-    - dotfiles
+  tags: dotfiles
 
 - name: Symlink dotfiles when needed.
   become: yes
@@ -22,5 +21,4 @@
     force: '{{force_overwrite}}'
   with_items: '{{st.results}}'
   when: item.stat.islnk is not defined or item.stat.islnk == False and force_overwrite
-  tags:
-    - dotfiles
+  tags: dotfiles

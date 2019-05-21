@@ -10,11 +10,11 @@
   tasks:
     - include_tasks: tasks/base_dotfiles.yml
       when: symlink_dotfiles|bool
-      tags:
-        - dotfiles
+      tags: dotfiles
     - include_tasks: tasks/base_setup.yml
       tags:
         - fonts
+        - aursetup
     - include_tasks: tasks/install_aur_packages.yml
       when: install_aur_packages|bool
     - include_tasks: tasks/install_python_packages.yml

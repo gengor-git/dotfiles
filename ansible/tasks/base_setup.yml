@@ -9,8 +9,7 @@
     src: '{{fonts_download}}'
     dest: '/usr/share/fonts'
     remote_src: yes
-  tags:
-    - fonts
+  tags: fonts
   register: font_installed
 
 - name: Clear font cache
@@ -27,7 +26,15 @@
       powerline-daemon -q
       POWERLINE_BASH_CONTINUATION=1
       POWERLINE_BASH_SELECT=1
-      #. /lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh    
+      #. /lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+
+# Extract the spacemacs to my normal user's home.
+- name: Spacemacs setup from online repo.
+  become: yes
+  become_user: martin
+  git:
+    repo: https://github.com/syl20bnr/spacemacs
+    dest: ~/.emacs.d
 
 # An AUR plugin will extend our Ansible modules.
 - name: Clone AUR plugin for Ansible
@@ -36,6 +43,7 @@
     repo: https://github.com/kewlfft/ansible-aur.git
     dest: ~/.ansible/plugins/modules/aur
   when: install_aur_packages
+  tags: aursetup
 
 # Create AUR build user.
 # See plugin homepage for details.
@@ -46,6 +54,7 @@
     name: aur_builder
     group: wheel
   when: install_aur_packages
+  tags: aursetup
 
 - name: Configure AUR user to run pacman
   become: yes
@@ -55,6 +64,7 @@
     create: yes
     validate: 'visudo -cf %s'
   when: install_aur_packages
+  tags: aursetup
 
 - name: Configure lightdm-theme Litarvan
   become: yes
@@ -62,4 +72,3 @@
     path: /etc/lightdm/lightdm-webkit2-greeter.conf
     regex: '^webkit_theme'
     line: 'webkit_theme        = litarvan'
-
