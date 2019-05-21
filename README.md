@@ -10,11 +10,22 @@ These packages must be installed manually:
 
 - ansible
 
+If you didn't use Antergos with i3 setup, you will probably need:
+
+- i3-gaps
+- X-Org (and stuff)
+
 To run the Ansible playbooks enter:
 
 ```bash
 sudo ansible-playbook -i inventory main.yml
 ```
+
+Furthermore you can use tags to run only certain tasks:
+
+- fonts
+- aursetup
+- dotfiles
 
 ## Know Bugs ##
 
@@ -39,8 +50,7 @@ or just don't want the overwriting, set the matching parameters in the
 
 ## Manual Installs ##
 
-- [San Francisco Font](https://github.com/supermarin/YosemiteSanFranciscoFont/)
-  (put ttfs into `~/.fonts`)
+- Symlinks to the .config directory.
 
 ## License ##
 
