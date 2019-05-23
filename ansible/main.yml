@@ -20,3 +20,5 @@
       tags: aur
     - include_tasks: tasks/install_python_packages.yml
       when: install_python_dev|bool == True
+    - include_tasks: tasks/post_install.yml
+      tags: postinstall
