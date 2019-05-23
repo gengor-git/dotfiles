@@ -17,5 +17,6 @@
         - aursetup
     - include_tasks: tasks/install_aur_packages.yml
       when: install_aur_packages|bool
+      tags: aur
     - include_tasks: tasks/install_python_packages.yml
       when: install_python_dev|bool
