@@ -49,6 +49,7 @@ arch_packages:
   - texlive-latexextra
   - lollypop
   - the_silver_searcher
+  - emacs
 
 arch_aur_packages:
   - gotop
