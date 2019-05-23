@@ -6,5 +6,4 @@
 
 # Install stuff with pip in user space.
 - name: Install python pip packages.
-  pip: name={{pip_python_packages}} state=present
-
+  pip: name="{{pip_python_packages}}" state=present
