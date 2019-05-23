@@ -219,6 +219,7 @@ assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
 assign [class="Firefox"] $workspace2
 assign [class="Code"] $workspace8
+assign [class="Lollypop"] $workspace10
 
 # Workaround for Spotify's bad mapping
 for_window [class="Spotify"] move to workspace $workspace9
@@ -263,7 +264,7 @@ bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/dotfiles/wallpaper.jpg
-#1010631.jpg 
+#1010631.jpg
 #feh --bg-scale /usr/share/backgrounds/antergos/83II_by_bo0xVn.jpg
 
 # Autostart apps
@@ -272,5 +273,5 @@ exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 2s && kalu"
-exec --no-startup-id "sleep 2s && spotify"
+#exec --no-startup-id "sleep 2s && spotify"
 exec --no-startup-id "firefox"
