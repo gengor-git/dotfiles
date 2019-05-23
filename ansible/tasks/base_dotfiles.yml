@@ -1,8 +1,8 @@
 ---
-- name: Switch to user's home
-  debug: var=lookup('env','HOME')
+#- name: Switch to user's home
+#  debug: var=lookup('env','HOME')
 
-- name: Test the symlinks
+- name: Test the symlinks in home.
   become: yes
   become_user: martin
   stat:
@@ -20,5 +20,26 @@
     state: link
     force: '{{force_overwrite}}'
   with_items: '{{st.results}}'
+  when: item.stat.islnk is not defined or item.stat.islnk == False and force_overwrite
+  tags: dotfiles
+
+- name: Test the symlinks in .config.
+  become: yes
+  become_user: martin
+  stat:
+    path: '~/.config/{{item.directory}}/{{item.filename}}'
+  with_items: '{{dotfiles_config}}'
+  register: stc
+  tags: dotfiles
+
+- name: Symlink dotfiles from .config when needed.
+  become: yes
+  become_user: martin
+  file:
+    src: '~/dotfiles/.config/{{item.item.directory}}/{{item.item.filename}}'
+    dest: '~/.config/{{item.item.directory}}/{{item.item.filename}}'
+    state: link
+    force: '{{force_overwrite}}'
+  with_items: '{{stc.results}}'
   when: item.stat.islnk is not defined or item.stat.islnk == False and force_overwrite
   tags: dotfiles
