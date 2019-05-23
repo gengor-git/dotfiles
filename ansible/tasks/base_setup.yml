@@ -31,7 +31,7 @@
 # Extract the spacemacs to my normal user's home.
 - name: Spacemacs setup from online repo.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   git:
     repo: https://github.com/syl20bnr/spacemacs
     dest: ~/.emacs.d

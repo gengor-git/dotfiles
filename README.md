@@ -15,10 +15,6 @@ If you didn't use Antergos with i3 setup, you will probably need:
 - i3-gaps or i3-wm
 - X-Org (and stuff)
 
-Also you must add your username to:
-
-- Add username to `base_dotfiles.yml`
-
 To run the Ansible playbooks enter:
 
 ```bash
@@ -47,18 +43,14 @@ the `config.dotfiles.yml` for the required files. If you do not want this at all
  set the matching parameters in the `config.settings.yml` to `no` or reduce the
  list wo that is in your interest.
 
- Also the Symlinking needs to know your username. It's currently hardcoded
- inside the playbook `base_dotfiles.yml`.
+Some configs need to be run as your regular user. Since I did not get a stable
+"auto-reading" from the system, it will ask you with a prompt.
 
 ![Preview Terminals](screenshot1.png)
 
 ![Preview UI](screenshot2.png)
 
 ![Coding is fun](screenshot3.png)
-
-## Manual Tasks ##
-
-- Add username to `base_dotfiles.yml`
 
 ## License ##
 

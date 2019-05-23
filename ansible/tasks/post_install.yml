@@ -7,7 +7,7 @@
 
 - name: Configure Bibata cursors from AUR package in GTK 2.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   lineinfile:
     path: '~/.gtkrc-2.0'
     regex: 'gtk-cursor-theme-name.*'
@@ -17,7 +17,7 @@
 
 - name: Configure Bibata cursors from AUR package in GTK 3.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   lineinfile:
     path: '~/.config/gtk-3.0/settings.ini'
     regex: 'gtk-cursor-theme-name.*'

@@ -2,6 +2,11 @@
 - hosts: all
   connection: local
 
+  vars_prompt:
+    - name: username
+      prompt: "What is your username?"
+      private: no
+
   vars_files:
     - config.settings.yml
     - config.packages.yml
