@@ -12,7 +12,7 @@ These packages must be installed manually:
 
 If you didn't use Antergos with i3 setup, you will probably need:
 
-- i3-gaps
+- i3-gaps or i3-wm
 - X-Org (and stuff)
 
 To run the Ansible playbooks enter:
@@ -29,18 +29,22 @@ Furthermore you can use tags to run only certain tasks:
 
 ## Know Bugs ##
 
-As Ansible needs a custom module which it will checkout when run. However it
-does not work in that run and causes and error.
+To install the AUR packages this playbook installs a plugin to root's home
+directory. However in the first run it will spawn an error, as the plugin will
+not be loaded while the play is running.
 
-The Workaround is simply: just run the playbooks again, as that time the module
-is already present in roots `.ansible` folder.
+The Workaround is simple: just run the playbook again, as that time the module
+is already present in root's `.ansible` folder.
 
 **Notice:**
 
 The playbook will overwrite your configs with symlinks for the dotfiles. Check
 the `config.dotfiles.yml` for the required files. If you do not want this at all
-or just don't want the overwriting, set the matching parameters in the
-`config.settings.yml` to `no`.
+ set the matching parameters in the `config.settings.yml` to `no` or reduce the
+ list wo that is in your interest.
+
+ Also the Symlinking needs to know your username. It's currently hardcoded 
+ inside the playbook `base_dotfiles.yml`.
 
 ![Preview Terminals](screenshot1.png)
 
