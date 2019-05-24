@@ -32,10 +32,10 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Paint css colors with the real color
-"Plug 'lilydjwg/colorizer'
+Plug 'lilydjwg/colorizer'
 
 "=== Snippets ===
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 "=== Code ===
 " Syntax checking
@@ -47,6 +47,13 @@ Plug 'nvie/vim-flake8'
 Plug 'davidhalter/jedi-vim'
 " Class/module browser
 Plug 'majutsushi/tagbar'
+
+" Side Tree view
+Plug 'scrooloose/nerdtree'
+" Project
+Plug 'ctrlpvim/ctrlp.vim'
+" Better commenting
+Plug 'scrooloose/nerdcommenter'
 
 "=== Efficiency ===
 " Surround objects with text
@@ -126,6 +133,10 @@ let mapleader=","
 "=== AIRLINE CONFIGS ===
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Switch in buffers more easily
 nnoremap <C-j> <C-w>j
