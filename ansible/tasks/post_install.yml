@@ -1,0 +1,26 @@
+---
+- name: Check if Babata was installed.
+  stat:
+    path: '/usr/share/icons/Bibata_Amber'
+  register: bibata
+  tags: postinstall
+
+- name: Configure Bibata cursors from AUR package in GTK 2.
+  become: yes
+  become_user: "{{username}}"
+  lineinfile:
+    path: '~/.gtkrc-2.0'
+    regex: 'gtk-cursor-theme-name.*'
+    line: 'gtk-cursor-theme-name="Bibata_Amber"'
+  when: bibata.stat.exists|bool == True
+  tags: postinstall
+
+- name: Configure Bibata cursors from AUR package in GTK 3.
+  become: yes
+  become_user: "{{username}}"
+  lineinfile:
+    path: '~/.config/gtk-3.0/settings.ini'
+    regex: 'gtk-cursor-theme-name.*'
+    line: 'gtk-cursor-theme-name=Bibata_Amber'
+  when: bibata.stat.exists|bool == True
+  tags: postinstall

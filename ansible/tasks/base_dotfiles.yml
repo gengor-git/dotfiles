@@ -4,7 +4,7 @@
 
 - name: Test the symlinks in home.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   stat:
     path: '~/{{item.file}}'
   with_items: '{{dotfiles_home}}'
@@ -13,7 +13,7 @@
 
 - name: Symlink dotfiles when needed.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   file:
     src: '~/dotfiles/{{item.item.linkto}}'
     dest: '~/{{item.item.file}}'
@@ -25,7 +25,7 @@
 
 - name: Test the symlinks in .config.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   stat:
     path: '~/.config/{{item.directory}}/{{item.filename}}'
   with_items: '{{dotfiles_config}}'
@@ -34,7 +34,7 @@
 
 - name: Symlink dotfiles from .config when needed.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   file:
     src: '~/dotfiles/.config/{{item.item.directory}}/{{item.item.filename}}'
     dest: '~/.config/{{item.item.directory}}/{{item.item.filename}}'

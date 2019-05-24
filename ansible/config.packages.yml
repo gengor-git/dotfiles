@@ -49,12 +49,15 @@ arch_packages:
   - texlive-latexextra
   - lollypop
   - the_silver_searcher
+  - emacs
+  - jdk-openjdk
 
 arch_aur_packages:
   - gotop
   - yay
   - visual-studio-code-bin
   - bibata-cursor-theme
+  - plantuml
 
 arch_python_dev_packages:
   - python-pandas

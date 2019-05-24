@@ -31,7 +31,7 @@
 # Extract the spacemacs to my normal user's home.
 - name: Spacemacs setup from online repo.
   become: yes
-  become_user: martin
+  become_user: "{{username}}"
   git:
     repo: https://github.com/syl20bnr/spacemacs
     dest: ~/.emacs.d
@@ -42,7 +42,7 @@
   git:
     repo: https://github.com/kewlfft/ansible-aur.git
     dest: ~/.ansible/plugins/modules/aur
-  when: install_aur_packages
+  when: install_aur_packages|bool == True
   tags: aursetup
 
 # Create AUR build user.
@@ -53,7 +53,7 @@
   user:
     name: aur_builder
     group: wheel
-  when: install_aur_packages
+  when: install_aur_packages|bool == True
   tags: aursetup
 
 - name: Configure AUR user to run pacman
@@ -63,7 +63,7 @@
     line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
     create: yes
     validate: 'visudo -cf %s'
-  when: install_aur_packages
+  when: install_aur_packages|bool == True
   tags: aursetup
 
 - name: Configure lightdm-theme Litarvan

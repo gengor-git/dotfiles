@@ -193,8 +193,8 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # finds out, if available)
 bar {
     status_command i3blocks -c ~/.config/i3blocks/config
-    font pango:SFNS Display 12
-    position top
+    font pango:SFNS Display 11
+    position bottom
 
 	colors {
         background $bg-color
