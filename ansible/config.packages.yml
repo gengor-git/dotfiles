@@ -66,5 +66,6 @@ arch_python_dev_packages:
 
 pip_python_packages:
   - jira
+  - neovim
 
 fonts_download: https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
