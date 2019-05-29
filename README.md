@@ -61,3 +61,4 @@ Wallheaven and Alphacoders and credit goes to the respective creator.
 
 - [Wallpaper: Wallheaven](https://wallhaven.cc/w/mdzkm1)
 - [Alt-Wallpaper: Alphacoders](https://wall.alphacoders.com/big.php?i=1010054)
+- [Flat Remix Wallpaper](https://www.opendesktop.org/p/1277548/)
