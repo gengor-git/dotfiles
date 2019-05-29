@@ -57,6 +57,7 @@ Some configs need to be run as your regular user. Since I did not get a stable
 My stuff is licensed under GPL 3.
 
 The wallpaper is only in this repo so the scripts are working. I got it from
-Alphacoders and credit goes to the respective creator.
+Wallheaven and Alphacoders and credit goes to the respective creator.
 
-[Alphacoders Link to wallpaper](https://wall.alphacoders.com/big.php?i=1010054)
+- [Wallpaper: Wallheaven](https://wallhaven.cc/w/mdzkm1)
+- [Alt-Wallpaper: Alphacoders](https://wall.alphacoders.com/big.php?i=1010054)
