@@ -263,7 +263,8 @@ bindsym $mod+Print exec "scrot ~/Bilder/scrot/%Y-%m-%d_%H-%M-%S.png"
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/dotfiles/wallpaper.jpg
+exec_always convert ~/.dotfiles/Flat-Remix-Wallpaper.svg -geometry 1920 ~/.dotfiles/Flat-Remix-Wallpaper.svg.png
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Flat-Remix-Wallpaper.svg.png
 #1010631.jpg
 #feh --bg-scale /usr/share/backgrounds/antergos/83II_by_bo0xVn.jpg
 
