@@ -8,7 +8,10 @@
 shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 HISTSIZE= HISTFILESIZE= # Infinite history.
 
-PS1='[\[$(tput sgr0)\]\[\033[38;5;148m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;133m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]]:\[$(tput sgr0)\]\[\033[38;5;35m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]'
+#PS1='[\[$(tput sgr0)\]\[\033[38;5;148m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;133m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]]:\[$(tput sgr0)\]\[\033[38;5;35m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]'
+
+
+export PS1="[\[$(tput sgr0)\]\[\033[38;5;205m\]\u\[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tput sgr0)\]\[\033[38;5;87m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]]:\[$(tput sgr0)\]\[\033[38;5;228m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\\$ \[$(tput sgr0)\]"
 
 # some more ls aliases
 alias ls='ls --color=auto'
