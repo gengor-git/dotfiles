@@ -214,8 +214,8 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (when (file-directory-p "C:/Users/palm07/Documents/git")
-    (setq projectile-project-search-path '("C:/Users/palm07/Documents/git")))
+  (when (file-directory-p "C:/Users/Martin/Documents/git")
+    (setq projectile-project-search-path '("C:/Users/Martin/Documents/git")))
   (setq projectile-switch-project-action #'projectile-dired))
 
 ;; better counsel support, check with ALT+o
