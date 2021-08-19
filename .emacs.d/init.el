@@ -21,6 +21,14 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+;; Default should be UTF-8
+(set-default-coding-systems 'utf-8)
+
+
+;; Other reasonable defaults
+;; Always follow symlinks, don't ask
+(setq vc-follow-symlinks t)
+
 ;; Font settings
 ;; You will most likely need to adjust this font size for your system!
 (defvar efs/default-font-size 120)
