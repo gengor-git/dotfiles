@@ -145,6 +145,11 @@
 (setq-default tab-width 2)
 ;;(setq-default evil-shift-width tab-width)
 (setq-default indent-tabs-mode nil)
+
+
+;; better identation, especially for YAML
+(use-package indent-tools)
+
 ;; Easier commenting
 (use-package evil-nerd-commenter
   :init
@@ -274,7 +279,6 @@
 ;; Had problems with Windows install.
 
 
-
 ;; Org settings » stay organized
 (setq org-plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
 (setq plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
@@ -395,3 +399,6 @@
 
 (use-package visual-fill-column
   :hook (org-mode . mcp/org-mode-visual-fill))
+
+
+;;
