@@ -146,7 +146,6 @@
 ;;(setq-default evil-shift-width tab-width)
 (setq-default indent-tabs-mode nil)
 
-
 ;; better identation, especially for YAML
 (use-package indent-tools)
 
@@ -215,6 +214,7 @@
     "fs" 'save-buffer
     "q" '(:ignore t :which-key "quit")
     "qq" 'evil-quit-all
+    "i"  '(indent-tools-hydra/body :which-key "ident menu")
     )
 
   (general-iemap
@@ -278,10 +278,19 @@
 ;;(use-package forge)
 ;; Had problems with Windows install.
 
+;; PlantUM
+(use-package plantuml-mode
+  :config
+  ;; (setq plantuml-jar-path "C:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
+  (setq plantuml-default-exec-mode 'jar)
+  ;; Enable plantuml-mode for PlantUML files
+  (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+  )
 
 ;; Org settings » stay organized
-(setq org-plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
-(setq plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
+(setq org-plantuml-jar-path 'plantuml-jar-path)
+
+(file-exists-p plantuml-jar-path)
 
 (defun mcp/org-font-setup ()
   ;; Set faces for heading levels
@@ -401,4 +410,10 @@
   :hook (org-mode . mcp/org-mode-visual-fill))
 
 
-;;
+;; Powershell stuff
+(defun run-powershell ()
+  "Run powershell"
+  (interactive)
+  (async-shell-command "c:/windows/system32/WindowsPowerShell/v1.0/powershell.exe -Command -"
+               nil
+               nil))
