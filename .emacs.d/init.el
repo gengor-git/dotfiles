@@ -150,24 +150,6 @@
   :init
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 
-;; Custom key bindings
-(use-package general
-  :config
-  (general-evil-setup t)
-  (general-create-definer mcp/leader-key-def
-    :keymaps '(normal visual)
-    :prefix "SPC"
-    :global-prefix: "C-SPC")
-  (mcp/leader-key-def
-    "t"  '(:ignore t :which-key "toggles")
-    "tt" '(counsel-load-theme :which-key "choose theme")
-    "tz" '(hydra-zoom/body :which-key "change zoom")
-    "f"  '(:ignore t :which-key "files")
-    "ff" 'counsel-find-file
-    "fs" 'save-buffer
-    "q" '(:ignore t :which-key "quit")
-    "qq" 'evil-quit-all
-    ))
 
 ;; Evil stuff here
 (use-package evil
@@ -201,7 +183,43 @@
   (evil-collection-init))
 
 
-;; Custom shortcuts
+(use-package undo-tree)
+(global-undo-tree-mode t)
+
+;; Custom key bindings
+(use-package general
+  :after which-key
+  :config
+  (general-evil-setup t)
+  (general-create-definer mcp/leader-key-def
+    :keymaps '(normal visual)
+    :prefix "SPC"
+    :non-normal-prefix "C-SPC")
+  (mcp/leader-key-def
+    "b"  '(:ignore t :which-key "buffer")
+    "bd" '(kill-this-buffer :which-key "kill this buffer")
+    "bb" '(counsel-switch-buffer :which-key "switch buffer")
+    "bn" '(evil-buffer-new :which-key "new file")
+    "bj" '(switch-to-next-buffer :which-key "switch to next buffer")
+    "bk" '(switch-to-prev-buffer :which-key "switch to prev buffer")
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")
+    "tz" '(hydra-zoom/body :which-key "change zoom")
+    "f"  '(:ignore t :which-key "files")
+    "ff" 'counsel-find-file
+    "fs" 'save-buffer
+    "q" '(:ignore t :which-key "quit")
+    "qq" 'evil-quit-all
+    )
+
+  (general-iemap
+    :prefix "M-SPC"
+    "f"  '(:ignore t :which-key "files")
+    "fs" 'save-buffer
+    ))
+
+
+;; Custom toggle shortcuts
 (use-package hydra)
 
 (defhydra hydra-zoom (global-map "<f2>")
