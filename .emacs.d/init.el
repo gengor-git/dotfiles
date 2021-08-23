@@ -8,10 +8,13 @@
 
 (menu-bar-mode -1)          ; Disable the menu bar
 
+(set-default-coding-systems 'utf-8)
+
 ;; Set up the visible bell
 (setq visible-bell t)
 ;; Line Numbers are (mostly) important
 (column-number-mode)
+
 (global-display-line-numbers-mode t)
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -21,19 +24,12 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; Default should be UTF-8
-(set-default-coding-systems 'utf-8)
-
-
-;; Other reasonable defaults
-;; Always follow symlinks, don't ask
-(setq vc-follow-symlinks t)
-
 ;; Font settings
 ;; You will most likely need to adjust this font size for your system!
-(defvar efs/default-font-size 120)
-(defvar efs/default-variable-font-size 120)
-(set-face-attribute 'default nil :font "Cascadia Code PL" :height efs/default-font-size)
+(defvar mcp/default-font-size 130)
+(defvar mcp/default-variable-font-size 130)
+(set-face-attribute 'default nil :font "Cascadia Code PL" :height mcp/default-font-size)
+(set-face-attribute 'font-lock-comment-face nil :font "Cascadia Code PL" :height mcp/default-font-size)
 
 ;; Theme
 (load-theme 'tango-dark)   ; superceded by doom themes later!
@@ -159,8 +155,8 @@
   :config
   (general-evil-setup t)
   (general-create-definer mcp/leader-key-def
-    :keymaps '(normal insert visual emacs)
-    :prefix "C-SPC"
+    :keymaps '(normal visual)
+    :prefix "SPC"
     :global-prefix: "C-SPC")
   (mcp/leader-key-def
     "t"  '(:ignore t :which-key "toggles")
@@ -168,7 +164,10 @@
     "tz" '(hydra-zoom/body :which-key "change zoom")
     "f"  '(:ignore t :which-key "files")
     "ff" 'counsel-find-file
-    "fs" 'save-buffer))
+    "fs" 'save-buffer
+    "q" '(:ignore t :which-key "quit")
+    "qq" 'evil-quit-all
+    ))
 
 ;; Evil stuff here
 (use-package evil
@@ -222,8 +221,8 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (when (file-directory-p "C:/Users/Martin/Documents/git")
-    (setq projectile-project-search-path '("C:/Users/Martin/Documents/git")))
+  (when (file-directory-p "C:/Users/palm07/Documents/git")
+    (setq projectile-project-search-path '("C:/Users/palm07/Documents/git")))
   (setq projectile-switch-project-action #'projectile-dired))
 
 ;; better counsel support, check with ALT+o
@@ -255,3 +254,116 @@
 ;; Enhancement to Magit
 ;;(use-package forge)
 ;; Had problems with Windows install.
+
+
+
+;; Org settings » stay organized
+(setq org-plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
+(setq plantuml-jar-path '"C:/Portable/plantuml/plantuml.jar")
+
+(defun mcp/org-font-setup ()
+  ;; Set faces for heading levels
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+
+
+(defun mcp/org-mode-setup ()
+  (org-indent-mode 1)
+  (variable-pitch-mode 0)
+  (visual-line-mode 1)
+  (auto-fill-mode 1))
+
+(use-package org
+  :hook (org-mode . mcp/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+
+  (setq org-capture-templates
+        '(("t" "Aufgabe" entry (file+headline "C:/Users/palm07/Documents/Aufgaben.org" "Inbox")
+           "* TODO %?")
+          ("z" "Zeiteintrag in Aufgaben.org" entry (file+headline "C:/Users/palm07/Documents/Aufgaben.org" "Inbox")
+           "* ZKTO %? \n  %i" :clock-in t :clock-resume t)
+          ("j" "Journal" entry (file+datetree "C:/Users/palm07/Documents/Journal.org")
+           "* %?\nEntered on %U\n  %i")))
+
+  ;; Ein "!" bedeutet Zeitstempel
+  ;; Ein "@" bedeutet Notiz
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "STARTED(s!)" "WAITING(w@/!)" "DELEGATED(g@/!)" "|" "DONE(d!)" "CANCELLED(c@)")
+          ))
+  ;; Einen Zeitstempel eintragen, wenn eine Aufgabe als erledigt markiert wird
+  (setq org-log-done 'time)
+
+  ;; Einen eigenen Drawer benutzen
+  (setq org-log-into-drawer t)
+
+  ;; deutsch as export language
+  (setq org-export-default-language "de")
+
+  ;; 
+  (setq org-agenda-start-with-log-mode t)
+
+  ;; deutscher Kalender:
+  (setq calendar-week-start-day 1
+        calendar-day-name-array
+          ["Sonntag" "Montag" "Dienstag" "Mittwoch"
+          "Donnerstag" "Freitag" "Samstag"]
+        calendar-month-name-array
+          ["Januar" "Februar" "März" "April" "Mai"
+          "Juni" "Juli" "August" "September"
+          "Oktober" "November" "Dezember"])
+
+  ;; Farben anpassen
+  (setq org-todo-keyword-faces
+        '(("TODO"  . (:foreground "#ff79a6" :weight bold))
+          ("ROUTINE"  . (:foreground "#00ced1" :weight bold))
+          ("IDEA"  . (:foreground "#B8860b" :weight bold))
+          ("PROJ"  . (:foreground "#8fbc8f" :weight bold))
+          ("SOLUTION"  . (:foreground "#00bfff" :weight bold))
+          ("STARTED"  . (:foreground "#ffa0a0" :weight bold))
+          ("WAITING"  . (:foreground "#bfbfbf" :weight bold))
+          ("DELEGATED"  . (:foreground "#bfbfbf" :weight bold))
+          ("DONE"  . (:foreground "#50fa7b"))
+          ("ROUTINE"  . (:foreground "#00ced1" :weight bold))
+          ("COMM"  . (:foreground "##Ffb90f" :weight bold))
+          ("MEET"  . (:foreground "#8470ff" :weight bold))
+          ("CANNED"  . shadow)
+          ("CANCELLED"  . shadow)))
+
+
+  ;; Call the font setup
+  (mcp/org-font-setup)
+  )
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("✪" "○" "●" "○" "●" "○" "●"))) ;;◉
+
+(with-eval-after-load 'org
+  )
+
+(defun mcp/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . mcp/org-mode-visual-fill))
