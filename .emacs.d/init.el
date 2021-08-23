@@ -369,6 +369,15 @@
   (mcp/org-font-setup)
   )
 
+
+;; Org Keybindings
+(mcp/leader-key-def 'normal org-mode-map
+  "a" 'org-agenda
+  "d" 'org-cut-subtree
+  "p" 'org-paste-subtree
+  )
+
+
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
@@ -385,3 +394,16 @@
 
 (use-package visual-fill-column
   :hook (org-mode . mcp/org-mode-visual-fill))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(visual-fill-column org-bullets magit counsel-projectile projectile hydra general undo-tree evil-collection evil evil-nerd-commenter helpful rainbow-mode rainbow-delimiters counsel ivy-rich ivy which-key doom-modeline all-the-icons doom-themes command-log-mode use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
