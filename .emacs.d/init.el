@@ -375,6 +375,7 @@
   "a" 'org-agenda
   "d" 'org-cut-subtree
   "p" 'org-paste-subtree
+  "RET" "C-c C-c"
   )
 
 
