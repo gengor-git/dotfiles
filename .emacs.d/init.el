@@ -1,4 +1,4 @@
-;; Config based on https://www.youtube.com/watch?v=74zOY-vgkyw
+;; Config based on https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ
 
 ;; User paths and custom variables
 (setq mcp-base-path (expand-file-name (concat (getenv "USERPROFILE") "/Documents")))
@@ -7,7 +7,7 @@
 (setq mcp-org-tasks (expand-file-name (concat mcp-base-path "/Aufgaben.org")))
 (setq mcp-org-journal (expand-file-name (concat mcp-base-path "/Journal.org")))
 
-(print (concat "Using base path " mcp-base-path))
+(message (concat "Using base path " mcp-base-path))
 
 ;; Basics
 (setq inhibit-startup-message t)
@@ -262,8 +262,11 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
+  ;; (when (file-directory-p mcp-repo-path)
+  ;;   (setq projectile-project-search-path mcp-repo-path))
+  ;; (setq projectile-switch-project-action #'projectile-dired)
   (when (file-directory-p mcp-repo-path)
-    (setq projectile-project-search-path mcp-repo-path))
+    (setq projectile-project-search-path (cddr (directory-files mcp-repo-path t))))
   (setq projectile-switch-project-action #'projectile-dired)
 )
 
@@ -305,6 +308,11 @@
 ;; (add-hook 'prog-mode-hook #'yas-minor-mode)
 (yas-global-mode 1)
 (use-package yasnippet-snippets)
+
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
 
 ;; PlantUM
 (use-package plantuml-mode
