@@ -265,9 +265,9 @@
   ;; (when (file-directory-p mcp-repo-path)
   ;;   (setq projectile-project-search-path mcp-repo-path))
   ;; (setq projectile-switch-project-action #'projectile-dired)
-  (when (file-directory-p mcp-repo-path)
-    (setq projectile-project-search-path (cddr (directory-files mcp-repo-path t))))
-  (setq projectile-switch-project-action #'projectile-dired)
+  ;; (when (file-directory-p mcp-repo-path)
+  ;;   (setq projectile-project-search-path '(mcp-repo-path . 0)))
+  ;; (setq projectile-switch-project-action #'projectile-dired)
 )
 
 ;; better counsel support, check with ALT+o
@@ -301,6 +301,8 @@
 ;; Had problems with Windows install.
 
 (use-package git-gutter)
+(global-git-gutter-mode 1)
+(global-company-mode 1)
 
 ;; Snippets and other enhancements
 (use-package yasnippet)
