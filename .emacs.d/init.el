@@ -7,7 +7,7 @@
 (setq mcp-org-tasks (expand-file-name (concat mcp-base-path "/Aufgaben.org")))
 (setq mcp-org-journal (expand-file-name (concat mcp-base-path "/Journal.org")))
 
-(print (concat mcp-org-journal mcp-base-path))
+(print (concat "Using base path " mcp-base-path))
 
 ;; Basics
 (setq inhibit-startup-message t)
@@ -29,6 +29,7 @@
 (global-display-line-numbers-mode t)
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
+                markdown-mode-hook
                 term-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
@@ -282,7 +283,7 @@
   "gs"  'magit-status
   "gd"  'magit-diff-unstaged
   "gc"  'magit-branch-or-checkout
-  "gl"   '(:ignore t :which-key "log")
+  "gl"  '(:ignore t :which-key "log")
   "glc" 'magit-log-current
   "glf" 'magit-log-buffer-file
   "gb"  'magit-branch
@@ -296,6 +297,7 @@
 ;;(use-package forge)
 ;; Had problems with Windows install.
 
+(use-package git-gutter)
 
 ;; Snippets and other enhancements
 (use-package yasnippet)
