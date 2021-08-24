@@ -61,7 +61,7 @@
 
 ;; Themes and nicer mode line
 (use-package doom-themes
-  :init (load-theme 'doom-dracula t)) ;; doom-one, doom-palenight, doom-moonlight, doom-dracula
+  :init (load-theme 'doom-monokai-octagon t)) ;; doom-one, doom-palenight, doom-moonlight, doom-dracula
 ;; on first install: M-x all-the-icons-install-fonts
 (use-package all-the-icons)
 (use-package doom-modeline
@@ -122,6 +122,8 @@
 (use-package rainbow-mode
   :defer t
   :hook (org-mode
+         markdown-mode
+         gfm-mode
          emacs-lisp-mode
          web-mode
          typescript-mode
@@ -223,6 +225,10 @@
     "fs" 'save-buffer
     ))
 
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 ;; Custom toggle shortcuts
 (use-package hydra)
@@ -277,6 +283,14 @@
 ;; Enhancement to Magit
 ;;(use-package forge)
 ;; Had problems with Windows install.
+
+
+;; Snippets and other enhancements
+(use-package yasnippet)
+;; (yas-reload-all)
+;; (add-hook 'prog-mode-hook #'yas-minor-mode)
+(yas-global-mode 1)
+(use-package yasnippet-snippets)
 
 ;; PlantUM
 (use-package plantuml-mode
@@ -382,7 +396,6 @@
   (mcp/org-font-setup)
   )
 
-
 ;; Org Keybindings
 (mcp/leader-key-def 'normal org-mode-map
   "a" 'org-agenda
@@ -391,26 +404,60 @@
   "RET" "C-c C-c"
   )
 
-
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("✪" "○" "●" "○" "●" "○" "●"))) ;;◉
 
-(with-eval-after-load 'org
+;; Markdown settings
+(defun mcp/markdown-font-setup ()
+  ;; Set faces for heading levels
+  (dolist (face '((markdown-header-face-1 . 2.0)
+                  (markdown-header-face-2 . 1.6)
+                  (markdown-header-face-3 . 1.4)
+                  (markdown-header-face-4 . 1.1)
+                  (markdown-header-face-5 . 1.1)
+                  (markdown-header-face-6 . 1.1)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+)
+(use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+            ("\\.md\\'" . markdown-mode)
+            ("\\.markdown\\'" . markdown-mode))
+    :init
+    (setq markdown-command "multimarkdown")
+    :config
+    ;; (set-face-attribute 'markdown-header-face nil :font "Cantarell" :weight 'regular)
+    ;; (setq markdown-header-scaling t)
+    (mcp/markdown-font-setup)
+)
+
+
+
+(mcp/leader-key-def 'normal markdown-mode-map
+  "i" '(:ignore t :which-key "insert")
+  "il" 'markdown-insert-link
+  "ii" 'markdown-insert-image
   )
 
-(defun mcp/org-mode-visual-fill ()
+;; set margin for all modes writing documents
+(defun mcp/write-mode-visual-fill ()
   (setq visual-fill-column-width 100
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-  :hook (org-mode . mcp/org-mode-visual-fill))
+  :hook
+  (org-mode . mcp/write-mode-visual-fill)
+  (markdown-mode . mcp/write-mode-visual-fill)
+  )
 
 
 ;; Powershell stuff
+(use-package powershell)
 (defun run-powershell ()
   "Run powershell"
   (interactive)
