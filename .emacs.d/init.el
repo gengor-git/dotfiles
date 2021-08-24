@@ -1,4 +1,15 @@
 ;; Config based on https://www.youtube.com/watch?v=74zOY-vgkyw
+
+;; User paths and custom variables
+(setq mcp-base-path (expand-file-name (concat (getenv "USERPROFILE") "/Documents")))
+(setq mcp-repo-path (expand-file-name (concat (getenv "USERPROFILE") "/Documents/git")))
+
+(setq mcp-org-tasks (expand-file-name (concat mcp-base-path "/Aufgaben.org")))
+(setq mcp-org-journal (expand-file-name (concat mcp-base-path "/Journal.org")))
+
+(print (concat mcp-org-journal mcp-base-path))
+
+;; Basics
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)        ; Disable visible scrollbar
@@ -250,9 +261,10 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (when (file-directory-p "C:/Users/palm07/Documents/git")
-    (setq projectile-project-search-path '("C:/Users/palm07/Documents/git")))
-  (setq projectile-switch-project-action #'projectile-dired))
+  (when (file-directory-p mcp-repo-path)
+    (setq projectile-project-search-path mcp-repo-path))
+  (setq projectile-switch-project-action #'projectile-dired)
+)
 
 ;; better counsel support, check with ALT+o
 (use-package counsel-projectile
@@ -340,11 +352,11 @@
   (setq org-ellipsis " ▾")
 
   (setq org-capture-templates
-        '(("t" "Aufgabe" entry (file+headline "C:/Users/palm07/Documents/Aufgaben.org" "Inbox")
+        '(("t" "Aufgabe" entry (file+headline mcp-org-tasks "Inbox")
            "* TODO %?")
-          ("z" "Zeiteintrag in Aufgaben.org" entry (file+headline "C:/Users/palm07/Documents/Aufgaben.org" "Inbox")
+          ("z" "Zeiteintrag in Aufgaben.org" entry (file+headline mcp-org-tasks "Inbox")
            "* ZKTO %? \n  %i" :clock-in t :clock-resume t)
-          ("j" "Journal" entry (file+datetree "C:/Users/palm07/Documents/Journal.org")
+          ("j" "Journal" entry (file+datetree mcp-org-journal)
            "* %?\nEntered on %U\n  %i")))
 
   ;; Ein "!" bedeutet Zeitstempel
