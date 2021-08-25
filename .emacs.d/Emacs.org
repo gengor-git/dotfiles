@@ -27,6 +27,10 @@
 My config is in large parts based on this YT video tutorial [[https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ]["Emacs
 from scratch" by David Wilson]].
 
+** How to tangle
+
+Export the ~init.el~ directly from command line via ~emacs --batch -l org .\Emacs.org -f org-babel-tangle~.
+
 ** Settings paths
 I mostly work on Windows machines and have different user profiles. Thus I need this to be dynamic.
 
