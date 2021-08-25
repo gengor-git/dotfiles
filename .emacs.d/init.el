@@ -265,9 +265,10 @@
   ;; (when (file-directory-p mcp-repo-path)
   ;;   (setq projectile-project-search-path mcp-repo-path))
   ;; (setq projectile-switch-project-action #'projectile-dired)
-  ;; (when (file-directory-p mcp-repo-path)
-  ;;   (setq projectile-project-search-path '(mcp-repo-path . 0)))
-  ;; (setq projectile-switch-project-action #'projectile-dired)
+  (when (file-directory-p mcp-repo-path)
+    (setq projectile-project-search-path '(""))
+    (add-to-list 'projectile-project-search-path mcp-repo-path))
+  (setq projectile-switch-project-action #'projectile-dired)
 )
 
 ;; better counsel support, check with ALT+o
