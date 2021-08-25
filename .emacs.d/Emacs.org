@@ -2,10 +2,12 @@
 * Emacs Configuration
 
 ** About this config
-My config is in large parts based on this YT video tutorial ["Emacs
-from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ).
+My config is in large parts based on this YT video tutorial [[https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ]["Emacs
+from scratch" by David Wilson]].
 
 ** Settings paths
+I mostly work on Windows machines and have different user profiles. Thus I need this to be dynamic.
+
 #+begin_src emacs-lisp
 ;; User paths and custom variables
 (setq mcp-base-path (expand-file-name (concat (getenv "USERPROFILE") "/Documents")))
@@ -35,7 +37,6 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 #+end_src
 ** General UI settings
 #+begin_src emacs-lisp
-
 ;; Basics
 (setq inhibit-startup-message t)
 
@@ -116,7 +117,9 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
   :custom ((doom-modeline-height 15)))
 #+end_src
 
-** Ivy, whichkey and keybinds
+** Ivy, which-key, counsel, helpful
+I'm using ivy for file handling and which-key, counsel and helpful for more infos in the UI.
+
 #+begin_src emacs-lisp
 ;; Spacemacs like display of key options
 (use-package which-key
@@ -180,7 +183,11 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 
 #+end_src
 
-** Nicer editing stuff (rainbow, tabs, comments)
+** Nicer editing stuff
+Especially for lisp I like rainbow tabs.
+
+The rest is just settings for tabs and tools for indentation.
+
 #+begin_src emacs-lisp
 ;; Easier reading of paranthesis, esp. in LISP
 (use-package rainbow-delimiters
@@ -211,7 +218,9 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 
 #+end_src
 
-** Evil
+** Evil settings
+Evil (vim) mode incl. surround.
+
 #+begin_src emacs-lisp
 ;; Evil stuff here
 (use-package evil
@@ -255,6 +264,8 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 #+end_src
 
 ** General keybindings (like Spacemacs)
+I really liked spacemacs, but it was too slow. So I used ~general~ to custom-config the settings I need manually.
+
 #+begin_src emacs-lisp
 ;; Custom key bindings
 (use-package general
@@ -300,7 +311,15 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 
 #+end_src
 
-** Development stuff (projectile, magit)
+** Development stuff
+I use projectile and magit for software development and also org/markdown documentation.
+
+~general.el~ custom keybinds to simulate the spacemacs settings there as well.
+
+Load snippets to make live easier while writing stuff.
+
+Python is (apart from Elisp) the main dev-mode for me.
+
 #+begin_src emacs-lisp
 ;; dev stuff » find, build and manage project folders
 (use-package projectile
@@ -369,9 +388,16 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 
 #+end_src
 
-** Documentation stuff (Org, Markdown, PlantUML)
+** Documentation stuff
+Documentation-as-code is something I like.
+
+[[https://plantetpalme.de/documentation-as-code][Documentation as Code Presentation]]
+
+- Nicer looking Markdown/Org-Mode Headlines
+- PlantUML integration in Org-Mode
+
 #+begin_src emacs-lisp
-;; PlantUM
+;; PlantUML
 (use-package plantuml-mode
   :config
   ;; (setq plantuml-jar-path "C:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
@@ -387,10 +413,10 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 
 (defun mcp/org-font-setup ()
   ;; Set faces for heading levels
-  (dolist (face '((org-level-1 . 2.0)
-                  (org-level-2 . 1.6)
-                  (org-level-3 . 1.4)
-                  (org-level-4 . 1.2)
+  (dolist (face '((org-level-1 . 1.6)
+                  (org-level-2 . 1.4)
+                  (org-level-3 . 1.2)
+                  (org-level-4 . 1.1)
                   (org-level-5 . 1.1)
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
@@ -538,6 +564,8 @@ from scratch" by David Wilson](https://www.youtube.com/watch?v=74zOY-vgkyw&list=
 #+end_src
 
 ** Misc
+In the future I'd like to try to get PowerShell coding also into Emacs.
+
 #+begin_src emacs-lisp
 ;; Powershell stuff
 (use-package powershell)
