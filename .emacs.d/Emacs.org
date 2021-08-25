@@ -413,7 +413,7 @@ Python is (apart from Elisp) the main dev-mode for me.
 ** Documentation stuff
 Documentation-as-code is something I like.
 
-[[https://plantetpalme.de/documentation-as-code][Documentation as Code Presentation]]
+[[https://planetpalme.de/documentation-as-code][Documentation as Code Presentation]]
 
 - Nicer looking Markdown/Org-Mode Headlines
 - PlantUML integration in Org-Mode
