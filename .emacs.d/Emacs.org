@@ -394,6 +394,7 @@ Python is (apart from Elisp) the main dev-mode for me.
 
 (use-package git-gutter)
 (global-git-gutter-mode 1)
+(use-package company)
 (global-company-mode 1)
 
 ;; Snippets and other enhancements
