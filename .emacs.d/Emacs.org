@@ -1,5 +1,27 @@
 #+PROPERTY: header-args:emacs-lisp :tangle init-new.el
+
+:CONTENTS:
+- [[#emacs-configuration][Emacs Configuration]]
+  - [[#about-this-config][About this config]]
+  - [[#settings-paths][Settings paths]]
+  - [[#general-editor-stuff][General Editor stuff]]
+  - [[#general-ui-settings][General UI settings]]
+  - [[#font-settings][Font settings]]
+  - [[#packaging][Packaging]]
+  - [[#nicer-ui][Nicer UI]]
+  - [[#ivy-which-key-counsel-helpful][Ivy, which-key, counsel, helpful]]
+  - [[#nicer-editing-stuff][Nicer editing stuff]]
+  - [[#evil-settings][Evil settings]]
+  - [[#general-keybindings-like-spacemacs][General keybindings (like Spacemacs)]]
+  - [[#development-stuff][Development stuff]]
+  - [[#documentation-stuff][Documentation stuff]]
+  - [[#misc][Misc]]
+:END:
+
 * Emacs Configuration
+:PROPERTIES:
+:TOC:      :include all :depth 2
+:END:
 
 ** About this config
 My config is in large parts based on this YT video tutorial [[https://www.youtube.com/watch?v=74zOY-vgkyw&list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ]["Emacs
