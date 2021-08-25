@@ -464,9 +464,9 @@
 
 
 (mcp/leader-key-def 'normal markdown-mode-map
-  "i" '(:ignore t :which-key "insert")
-  "il" 'markdown-insert-link
-  "ii" 'markdown-insert-image
+  "e" '(:ignore t :which-key "insert")
+  "el" 'markdown-insert-link
+  "ei" 'markdown-insert-image
   )
 
 ;; set margin for all modes writing documents
@@ -490,3 +490,14 @@
   (async-shell-command "c:/windows/system32/WindowsPowerShell/v1.0/powershell.exe -Command -"
                nil
                nil))
+
+;; More Tweaks
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.saves/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)
+
