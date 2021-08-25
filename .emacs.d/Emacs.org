@@ -524,6 +524,10 @@ Documentation-as-code is something I like.
   (mcp/org-font-setup)
   )
 
+;; Package to generate a TOC
+;; org-make-toc-insert → org-make-toc
+(use-package org-make-toc)
+
 ;; Org Keybindings
 (mcp/leader-key-def 'normal org-mode-map
   "a" 'org-agenda
