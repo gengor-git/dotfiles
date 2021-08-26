@@ -407,13 +407,18 @@ Python is (apart from Elisp) the main dev-mode for me.
 ;; (add-hook 'prog-mode-hook #'yas-minor-mode)
 (yas-global-mode 1)
 (use-package yasnippet-snippets)
+#+end_src
 
+*** Python
+
+#+begin_src emacs-lisp
 (use-package elpy
   :ensure t
   :init
   (elpy-enable))
-
 #+end_src
+
+**** TODO Configure Python Code Completion with LSP
 
 ** Documentation stuff
 Documentation-as-code is something I like.
@@ -422,6 +427,8 @@ Documentation-as-code is something I like.
 
 - Nicer looking Markdown/Org-Mode Headlines
 - PlantUML integration in Org-Mode
+
+*** PlantUML
 
 #+begin_src emacs-lisp
 ;; PlantUML
@@ -432,7 +439,13 @@ Documentation-as-code is something I like.
   ;; Enable plantuml-mode for PlantUML files
   (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
   )
+#+end_src
 
+**** TODO Fix PlantUML Preview which is not working on Windows
+
+*** Org-Mode
+
+#+begin_src emacs-lisp
 ;; Org settings » stay organized
 (setq org-plantuml-jar-path 'plantuml-jar-path)
 
@@ -546,7 +559,11 @@ Documentation-as-code is something I like.
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("✪" "○" "●" "○" "●" "○" "●"))) ;;◉
+#+end_src
 
+*** Markdown
+
+#+begin_src emacs-lisp
 ;; Markdown settings
 (defun mcp/markdown-font-setup ()
   ;; Set faces for heading levels
@@ -579,7 +596,13 @@ Documentation-as-code is something I like.
   "el" 'markdown-insert-link
   "ei" 'markdown-insert-image
   )
+#+end_src
 
+*** Visual fill mode
+
+Writing is nicer with the text in a fixed witdh and centered. Visual fill makes that for the markdown and org-mode.
+
+#+begin_src emacs-lisp
 ;; set margin for all modes writing documents
 (defun mcp/write-mode-visual-fill ()
   (setq visual-fill-column-width 100
