@@ -28,7 +28,6 @@ My config is in large parts based on this YT video tutorial [[https://www.youtub
 from scratch" by David Wilson]].
 
 ** How to tangle
-
 Export the ~init.el~ directly from command line via ~emacs --batch -l org .\Emacs.org -f org-babel-tangle~.
 
 ** Settings paths
@@ -212,7 +211,7 @@ I'm using ivy for file handling and which-key, counsel and helpful for more info
 ** Nicer editing stuff
 Especially for lisp I like rainbow tabs.
 
-The rest is just settings for tabs and tools for indentation.
+The rest is just settings for tabs and tools for indentation. Some keybindings later depend on ~indent-tools~.
 
 #+begin_src emacs-lisp
 ;; Easier reading of paranthesis, esp. in LISP
@@ -346,6 +345,7 @@ Load snippets to make live easier while writing stuff.
 
 Python is (apart from Elisp) the main dev-mode for me.
 
+*** Projectile
 #+begin_src emacs-lisp
 ;; dev stuff » find, build and manage project folders
 (use-package projectile
@@ -371,7 +371,10 @@ Python is (apart from Elisp) the main dev-mode for me.
   :after projectile
   :config (counsel-projectile-mode))
 ;; C-c p s r » search with Ripgrep (written in Rust), Use C-c C-o for permanent buffer
+#+end_src
 
+*** Magit, git-gutter, snippets
+#+begin_src emacs-lisp
 ;; Version control with git, requires evil-collection to play nice
 (use-package magit
   :custom
@@ -398,8 +401,6 @@ Python is (apart from Elisp) the main dev-mode for me.
 
 (use-package git-gutter)
 (global-git-gutter-mode 1)
-(use-package company)
-(global-company-mode 1)
 
 ;; Snippets and other enhancements
 (use-package yasnippet)
@@ -409,16 +410,112 @@ Python is (apart from Elisp) the main dev-mode for me.
 (use-package yasnippet-snippets)
 #+end_src
 
+*** LSP Mode
+Making Emacs more like a full IDE, the language server protocol is what I would like to use for my Python coding.
+
+
+#+begin_src emacs-lisp
+(defun efs/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . efs/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  :config
+  (lsp-enable-which-key-integration t))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+#+end_src
+
+**** LSP UI
+
+#+begin_src emacs-lisp
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
+#+end_src
+
+*** Debugging
+#+begin_src emacs-lisp
+(use-package dap-mode
+  ;; Uncomment the config below if you want all UI panes to be hidden by default!
+  ;; :custom
+  ;; (lsp-enable-dap-auto-configure nil)
+  ;; :config
+  ;; (dap-ui-mode 1)
+
+  :config
+  ;; Set up Node debugging
+  (require 'dap-node)
+  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+
+  ;; Bind `C-c l d` to `dap-hydra` for easy access
+  (general-define-key
+    :keymaps 'lsp-mode-map
+    :prefix lsp-keymap-prefix
+    "d" '(dap-hydra t :wk "debugger")))
+#+end_src
+
+*** Company
+Nicer buffer completion interface.
+
+#+begin_src emacs-lisp
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+#+end_src
 *** Python
 
 #+begin_src emacs-lisp
+(use-package python-mode
+  :ensure t
+  :hook (python-mode . lsp-deferred)
+  :custom
+  ;; NOTE: Set these if Python 3 is called "python3" on your system!
+  ;; (python-shell-interpreter "python3")
+  ;; (dap-python-executable "python3")
+  (dap-python-debugger 'debugpy)
+  :config
+  (require 'dap-python))
+
 (use-package elpy
   :ensure t
   :init
   (elpy-enable))
 #+end_src
 
-**** TODO Configure Python Code Completion with LSP
+**** STARTED Configure Python Code Completion with LSP
+:LOGBOOK:
+- State "STARTED"    from "TODO"       [2021-08-26 Do 11:47]
+:END:
+You may be required to use this code to install the correct python
+language server: ~pip install 'python-lsp-server[all]'~.
+
+Maybe Pyright is faster? Pyright is using nodejs.
+
+***** Links
+1. https://github.com/microsoft/pyright
+2. https://emacs-lsp.github.io/lsp-mode/page/lsp-pylsp/
+
+**** TODO Configure Python debugger
 
 ** Documentation stuff
 Documentation-as-code is something I like.
@@ -429,7 +526,6 @@ Documentation-as-code is something I like.
 - PlantUML integration in Org-Mode
 
 *** PlantUML
-
 #+begin_src emacs-lisp
 ;; PlantUML
 (use-package plantuml-mode
@@ -444,7 +540,6 @@ Documentation-as-code is something I like.
 **** TODO Fix PlantUML Preview which is not working on Windows
 
 *** Org-Mode
-
 #+begin_src emacs-lisp
 ;; Org settings » stay organized
 (setq org-plantuml-jar-path 'plantuml-jar-path)
@@ -559,10 +654,18 @@ Documentation-as-code is something I like.
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("✪" "○" "●" "○" "●" "○" "●"))) ;;◉
+
+
+
+;; This is needed as of Org 9.2
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
 #+end_src
 
 *** Markdown
-
 #+begin_src emacs-lisp
 ;; Markdown settings
 (defun mcp/markdown-font-setup ()
@@ -599,7 +702,6 @@ Documentation-as-code is something I like.
 #+end_src
 
 *** Visual fill mode
-
 Writing is nicer with the text in a fixed witdh and centered. Visual fill makes that for the markdown and org-mode.
 
 #+begin_src emacs-lisp
