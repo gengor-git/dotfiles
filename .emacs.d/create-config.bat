@@ -1,0 +1,1 @@
+C:\Portable\emax64\bin\emacs --batch -l org .\Emacs.org -f org-babel-tangle
