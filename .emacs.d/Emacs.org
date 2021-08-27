@@ -517,6 +517,10 @@ Maybe Pyright is faster? Pyright is using nodejs.
 
 **** TODO Configure Python debugger
 
+**** TODO Better use of Python linting
+- Which linter is used? flake8?
+- How can auto-fixes be applied?
+
 ** Documentation stuff
 Documentation-as-code is something I like.
 
@@ -540,6 +544,12 @@ Documentation-as-code is something I like.
 **** TODO Fix PlantUML Preview which is not working on Windows
 
 *** Org-Mode
+Make org-files look nicer by hiding certain parts of the UI and content and setting nicer fonts for headlines.
+
+Also use some custom keybindings for org-features.
+
+For generating a TOC use ~org-make-toc-insert~ then ~org-make-toc~.
+
 #+begin_src emacs-lisp
 ;; Org settings » stay organized
 (setq org-plantuml-jar-path 'plantuml-jar-path)
@@ -573,7 +583,7 @@ Documentation-as-code is something I like.
   (org-indent-mode 1)
   (variable-pitch-mode 0)
   (visual-line-mode 1)
-  (auto-fill-mode 1))
+  (auto-fill-mode 0))
 
 (use-package org
   :hook (org-mode . mcp/org-mode-setup)
