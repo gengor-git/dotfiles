@@ -558,9 +558,9 @@ For generating a TOC use ~org-make-toc-insert~ then ~org-make-toc~.
 
 (defun mcp/org-font-setup ()
   ;; Set faces for heading levels
-  (dolist (face '((org-level-1 . 1.6)
-                  (org-level-2 . 1.4)
-                  (org-level-3 . 1.2)
+  (dolist (face '((org-level-1 . 1.4)
+                  (org-level-2 . 1.2)
+                  (org-level-3 . 1.1)
                   (org-level-4 . 1.1)
                   (org-level-5 . 1.1)
                   (org-level-6 . 1.1)
@@ -663,7 +663,7 @@ For generating a TOC use ~org-make-toc-insert~ then ~org-make-toc~.
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
-  (org-bullets-bullet-list '("✪" "○" "●" "○" "●" "○" "●"))) ;;◉
+  (org-bullets-bullet-list '("»" "○" "●" "○" "●" "○" "●"))) ;;◉✪
 
 
 
