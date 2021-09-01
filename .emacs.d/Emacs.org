@@ -653,6 +653,14 @@ For generating a TOC use ~org-make-toc-insert~ then ~org-make-toc~.
     "p" 'org-paste-subtree
     "RET" "C-c C-c"
     )
+
+    ;; This is needed as of Org 9.2
+    (require 'org-tempo)
+
+    ;; use via <el or <py
+    (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+    (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+    (add-to-list 'org-structure-template-alist '("py" . "src python"))
   )
 #+end_src
 
@@ -672,14 +680,6 @@ Some minor stuff like TOC generation, nicer bullets and special snippets for cod
   :custom
   (org-bullets-bullet-list '("»" "○" "●" "○" "●" "○" "●"))) ;;◉✪
 
-;; This is needed as of Org 9.2
-(require 'org-tempo
-    :after org)
-
-;; use via <el or <py
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
 #+end_src
 
 **** Pandoc Support for Org-Export
