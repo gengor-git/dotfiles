@@ -731,8 +731,6 @@ The Package ~ox-pandoc~ adds [[https://pandoc.org][Pandoc]] to the list of expor
     (mcp/markdown-font-setup)
 )
 
-
-
 (mcp/leader-key-def 'normal markdown-mode-map
   "e" '(:ignore t :which-key "insert")
   "el" 'markdown-insert-link
