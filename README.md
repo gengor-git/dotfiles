@@ -1,50 +1,26 @@
 # Dotfiles and Playbooks #
 
-These are my dotfiles together with some Ansible to make the installation
-simpler. It is currently still work in progress und may be unstable to use. As
-of now they are only inside my Antergos (Arch OS) Linux VM, running a i3-wm.
+These are my dotfiles. It is always work in progress und may be unstable to use. 
 
-## Prerequisits ##
+Most of these settings are used inside of an Ubuntu 20.04 WSL2 within my Windows 10.
 
-These packages must be installed manually:
-
-- ansible
-
-If you didn't use Antergos with i3 setup, you will probably need:
-
-- i3-gaps or i3-wm
-- X-Org (and stuff)
-
-To run the Ansible playbooks enter:
+Notice that my Emacs config is based on an `Emacs.org` file that you need to generate the `init.el` file from using the later command:
 
 ```bash
-sudo ansible-playbook -i inventory main.yml
+emacs --batch -l org Emacs.org -f org-babel-tangle
 ```
 
-Furthermore you can use tags to run only certain tasks:
+You can read about the [details of my config here](./.emacs.d/Emacs.org).
 
-- fonts
-- aursetup
-- dotfiles
+This will create an `init-new.el` that you can use to symlink or overwrite your actual `init.el` inside the `.emacs.d` directory.
 
-## Know Bugs ##
+## Setup via Ansible ##
 
-To install the AUR packages this playbook installs a plugin to root's home
-directory. However in the first run it will spawn an error, as the plugin will
-not be loaded while the play is running.
+This part has been removed from this repo and is now a separate one.
 
-The Workaround is simple: just run the playbook again, as that time the module
-is already present in root's `.ansible` folder.
+Check it out at [BitBucket](https://bitbucket.org/gengor/ansible-linux-pc/)
 
-**Notice:**
-
-The playbook will overwrite your configs with symlinks for the dotfiles. Check
-the `config.dotfiles.yml` for the required files. If you do not want this at all
- set the matching parameters in the `config.settings.yml` to `no` or reduce the
- list wo that is in your interest.
-
-Some configs need to be run as your regular user. Since I did not get a stable
-"auto-reading" from the system, it will ask you with a prompt.
+## Screenshots ##
 
 ![Preview Terminals](screenshot1.png)
 
