@@ -22,11 +22,9 @@ Check it out at [BitBucket](https://bitbucket.org/gengor/ansible-linux-pc/)
 
 ## Screenshots ##
 
-![Preview Terminals](screenshot1.png)
-
-![Preview UI](screenshot2.png)
-
 ![Coding is fun](screenshot3.png)
+
+![Emacs](screenshot4-emacs.png)
 
 ## License ##
 
