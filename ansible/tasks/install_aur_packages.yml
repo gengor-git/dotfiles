@@ -1,8 +1,0 @@
----
-# Install AUR packages.
-- name: Install AUR packages.
-  aur: name="{{arch_aur_packages}}" use=makepkg skip_installed=true
-  become: yes
-  become_user: aur_builder
-  when: install_aur_packages|bool == True
-  tags: aur
