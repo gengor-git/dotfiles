@@ -1,0 +1,76 @@
+{
+	// Place your snippets for yaml here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Colorbox": {
+		"prefix": "tcolorbox",
+		"body": [
+      "header-includes:",
+      "- |",
+      "  ```{=latex}",
+      "  \\usepackage{tcolorbox}",
+      "",
+      "  \\newtcolorbox{info-box}{colback=cyan!5!white,arc=0pt,outer arc=0pt,colframe=cyan!60!black}",
+      "  \\newtcolorbox{warning-box}{colback=orange!5!white,arc=0pt,outer arc=0pt,colframe=orange!80!black}",
+      "  \\newtcolorbox{error-box}{colback=red!5!white,arc=0pt,outer arc=0pt,colframe=red!75!black}",
+      "  ```",
+      "pandoc-latex-environment:",
+      "  tcolorbox: [Box]",
+      "  info-box: [Info]",
+      "  warning-box: [Warning]",
+      "  error-box: [Error]",
+		]
+	},
+	"Awesomebox": {
+		"prefix": "awesomebox",
+		"body": [
+      "header-includes:",
+      "- |",
+      "  ```{=latex}",
+      "  \\usepackage{awesomebox}",
+      "  ```",
+      "pandoc-latex-environment:",
+      "  noteblock: [Note]",
+      "  tipblock: [Tip]",
+      "  warningblock: [Warning]",
+      "  cautionblock: [Caution]",
+      "  importantblock: [Important]",
+		]
+   },
+   "Multiboxes": {
+      "prefix": "multibox",
+      "body": [
+      "header-includes:",
+      "- |",
+      "  ```{=latex}",
+      "  \\usepackage{tcolorbox}",
+      "  \\usepackage{awesomebox}",
+      "",
+      "  \\newtcolorbox{info-box}{colback=cyan!5!white,arc=0pt,outer arc=0pt,colframe=cyan!60!black}",
+      "  \\newtcolorbox{warning-box}{colback=orange!5!white,arc=0pt,outer arc=0pt,colframe=orange!80!black}",
+      "  \\newtcolorbox{error-box}{colback=red!5!white,arc=0pt,outer arc=0pt,colframe=red!75!black}",
+      "  ```",
+      "pandoc-latex-environment:",
+      "  tcolorbox: [Box]",
+      "  info-box: [Info]",
+      "  warning-box: [Warning2]",
+      "  error-box: [Error]",
+      "  noteblock: [Note]",
+      "  tipblock: [Tip]",
+      "  warningblock: [Warning]",
+      "  cautionblock: [Caution]",
+      "  importantblock: [Important]",
+      ]
+   }
+}
