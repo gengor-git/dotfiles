@@ -10,5 +10,5 @@
         "key": "shift+tab",
         "command": "text-tables.gotoPreviousCell",
         "when": "tableMode"
-    }
+    }    
 ]
