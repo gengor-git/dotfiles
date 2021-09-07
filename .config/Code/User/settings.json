@@ -1,52 +1,103 @@
-
 {
-    "editor.fontFamily": "'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
-    "editor.wordWrapColumn": 80,
-    "editor.wordWrap": "bounded",
-    "editor.wrappingIndent": "indent",
-    "editor.renderIndentGuides": true,
-    "editor.renderWhitespace": "none",
-    "editor.minimap.showSlider": "mouseover",
-    "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "Hasklig, 'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
+  "editor.renderIndentGuides": true,
+  "editor.wrappingIndent": "deepIndent",
+  "editor.wordWrapColumn": 80,
+  "editor.renderWhitespace": "none",
+  "editor.minimap.showSlider": "mouseover",
 
-    // Vim settings
-    "vim.useSystemClipboard": true,
-    "vim.handleKeys": {
-        "<C-k>": false,
-        "<C-q>": false,
-        "<C-h>": false
-    },
-    "vim.visualstar": true,
-    "vim.insertModeKeyBindings": [
+  // Vim settings
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-k>": false,
+    "<C-q>": false,
+    "<C-h>": false
+  },
+  "vim.visualstar": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "f"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [":"],
+      "commands": [
         {
-            "before": ["j", "f"],
-            "after": ["<Esc>"]
+          "command": "workbench.action.showCommands"
         }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-        "before": [":"],
-        "commands": [
-            {
-                "command": "workbench.action.showCommands",
-            }
-        ]
-        }
-    ],
-    "vim.hlsearch": true,
+      ]
+    }
+  ],
+  "vim.hlsearch": true,
 
-    //-------- Pandoc Option Configuration --------
-    // pandoc .pdf output option template that you would like to use
-    "pandoc.pdfOptString": "--number-sections --data-dir D:\\Dev\\git\\dso-documentation --template eisvogel --pdf-engine=xelatex -V colorlinks --listings -F D:\\Dev\\git\\dso-documentation\\pandoc-filter\\pandoc_plantuml_filter.py",
-    // pandoc .html output option template that you would like to use
-    "pandoc.htmlOptString": "-t html5 -s --data-dir D:\\Dev\\git\\dso-documentation --template=GitHub --toc -F D:\\Dev\\git\\dso-documentation\\pandoc-filter\\pandoc_plantuml_filter.py",
-    "editor.minimap.enabled": false,
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "Sublime Material Theme - Dark",
-    "colorHelper.storeDir": "D:\\Dev\\git\\dso-documentation\\colors\\palettes",
-    "vim.disableExtension": false,
-    "editor.fontSize": 16,
-    "editor.fontLigatures": true,
-    "vim.easymotionMarkerFontFamily": "'Fira Code'",
-    "git.autofetch": true
+  //-------- Pandoc Option Configuration --------
+  // pandoc .pdf output option template that you would like to use
+  //"pandoc.pdfOptString": "--number-sections --data-dir D:\\Daten\\dev\\git\\prettydoc --template eisvogel --pdf-engine=xelatex -V colorlinks --listings --filter pandoc-latex-environment",
+  //"pandoc.pdfOptString": "--number-sections --data-dir D:\\Daten\\dev\\git\\prettydoc --template eisvogel --pdf-engine=xelatex -V colorlinks --listings --filter pandoc-latex-environment -V geometry:\"top=2cm, bottom=2cm, left=1cm, right=1cm\"",
+  "pandoc.pdfOptString": "--number-sections --data-dir D:\\Daten\\dev\\git\\prettydoc --template eisvogel --pdf-engine=xelatex -V colorlinks --listings --filter pandoc-latex-environment -F D:\\Daten\\dev\\git\\prettydoc\\pandoc-filter\\pandoc_plantuml_filter.py",
+  //"pandoc.pdfOptString": "--number-sections --data-dir D:\\Daten\\dev\\git\\prettydoc --template eisvogel --pdf-engine=xelatex -V colorlinks --listings -F D:\\Daten\\dev\\git\\prettydoc\\pandoc-filter\\pandoc_plantuml_filter.py",
+  // pandoc .html output option template that you would like to use
+  "pandoc.htmlOptString": "-t html5 -s --self-contained --data-dir D:\\Daten\\dev\\git\\prettydoc --template=GitHub --toc -F D:\\Daten\\dev\\git\\prettydoc\\pandoc-filter\\pandoc_plantuml_filter.py -F pandoc-latex-environment",
+  "editor.minimap.enabled": false,
+  "colorHelper.storeDir": "D:\\Daten\\dev\\git\\prettydoc\\colors\\palettes",
+  "vim.disableExtension": false,
+  "editor.fontLigatures": true,
+  "workbench.sideBar.location": "left",
+  "diffEditor.renderSideBySide": true,
+  "markdown.extension.showExplorer": true,
+  "editor.renderControlCharacters": true,
+  "breadcrumbs.enabled": true,
+  "colorHelper.disableGpu": 1,
+  "yaml.schemas": {
+    "file:///toc.schema.json": "/toc\\.yml/i"
+  },
+  "files.autoSave": "off",
+  "files.associations": {
+    "*.latex": "latex-expl3"
+  },
+  "editor.columnSelection": false,
+  "gitlens.views.repositories.branches.layout": "list",
+  "tabnine.experimentalAutoImports": true,
+  "editor.cursorSurroundingLines": 10,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    // "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    // "editor.formatOnSave": true,
+  },
+  "powershell.powerShellDefaultVersion": "Windows PowerShell (x64)",
+  "terminal.external.windowsExec": "%SystemRoot%\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.enableBell": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "revealjs.browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "revealjs.mouseWheel": true,
+  "markdown-preview-enhanced.revealjsTheme": "black.css",
+  "screencastMode.verticalOffset": 5,
+  "screencastMode.mouseIndicatorColor": "#00FFFF",
+  "screencastMode.fontSize": 20,
+  "plantuml.exportOutDir": "",
+  "plantuml.exportSubFolder": false,
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.colorTheme": "Tinacious Design (Light)",
+  "dimmer.opacity": 20,
+  "workbench.startupEditor": "newUntitledFile",
+  "plantuml.render": "Local",
+  "plantuml.jar": "C:\\Portable\\plantuml\\plantuml.jar",
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "markdown.extension.italic.indicator": "_",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "terminal.integrated.fontFamily": "MesloLGM NF",
+  "terminal.integrated.fontSize": 12,
+  "plantuml.jarArgs": [],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
