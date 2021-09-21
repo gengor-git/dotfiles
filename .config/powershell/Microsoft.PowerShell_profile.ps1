@@ -15,7 +15,7 @@ Set-Alias -Name "nvim" -Value "C:\Portable\neovim\Neovim\bin\nvim.exe"
 Set-Alias -Name "ec" -Value Edit-Config
 
 function Get-ADDetails($User){
-	return Get-AzureADUser -ObjectId $User | select GivenName, Surname, TelephoneNumber, Mobile, Mail, MailNickname
+    return Get-AzureADUser -ObjectId $User | select GivenName, Surname, TelephoneNumber, Mobile, Mail, MailNickname
 }
 
 function Find-ADUser($SearchString){
@@ -26,16 +26,16 @@ function Find-ADUser($SearchString){
 }
 
 function Export-HotfixList() {
-	$date = Get-Date -Format "yyyyMMdd-HHmmss"
-	Get-HotFix | Select-Object PSComputerName, InstalledOn, __SERVER, __NAMESPACE, Caption, CSName, Description, HotFixID, InstalledBy | Export-Excel -Path $env:USERPROFILE\Desktop\"Hotfix-$date.xlsx" -AutoFilter -AutoSize -TableStyle Light12 -Show -ClearSheet
+    $date = Get-Date -Format "yyyyMMdd-HHmmss"
+    Get-HotFix | Select-Object PSComputerName, InstalledOn, __SERVER, __NAMESPACE, Caption, CSName, Description, HotFixID, InstalledBy | Export-Excel -Path $env:USERPROFILE\Desktop\"Hotfix-$date.xlsx" -AutoFilter -AutoSize -TableStyle Light12 -Show -ClearSheet
 }
 
 function Get-HtmlViaPandoc($MarkdownFile) {
     $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
     $RenderFileName = (Get-Item -Path $MarkdownFile).BaseName + ".html"
-	Out-Default $MarkdownFile
+     Out-Default $MarkdownFile
     Start-Process -FilePath "pandoc.exe" -ArgumentList "-f markdown -t html5 -s --self-contained --data-dir `"$env:Pandoc_Datadir`" --template=GitHub --toc -o `"$RenderFileName`" `"$MarkdownFile`" -F $env:Pandoc_Datadir\pandoc-filter\pandoc_plantuml_filter.py -F pandoc-latex-environment" -NoNewWindow -Wait
-	Out-Default $RenderFileName
+    Out-Default $RenderFileName
     Invoke-Item -Path "$RenderFileName"
     $stopwatch | Select-Object -Property Elapsed
 }
@@ -43,21 +43,21 @@ function Get-HtmlViaPandoc($MarkdownFile) {
 function Get-PdfViaPandoc($MarkdownFile){
     $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
     $RenderFileName = (Get-Item -Path $MarkdownFile).BaseName + ".pdf"
-	Out-Default $MarkdownFile
+    Out-Default $MarkdownFile
     Start-Process -FilePath "pandoc.exe" -ArgumentList "-f markdown -t latex --number-sections --data-dir `"$env:Pandoc_Datadir`" --template eisvogel --pdf-engine=xelatex -V colorlinks --listings -o `"$RenderFileName`" `"$MarkdownFile`" -F $env:Pandoc_Datadir\pandoc-filter\pandoc_plantuml_filter.py -F pandoc-latex-environment" -NoNewWindow -Wait
     Invoke-Item -Path "$RenderFileName"
-	Out-Default $RenderFileName
+    Out-Default $RenderFileName
     $stopwatch | Select-Object -Property Elapsed
 }
 
 function Start-Emacs($File) {
     $run_emacs = "C:\Portable\emax64\bin\emacsclientw.exe"
-    $params = "-f C:\Users\Martin\AppData\Roaming\.emacs.d\server\server $File"
+    $params = "-f C:\Users\marti\AppData\Roaming\.emacs.d\server\server $File"
     Start-Process -FilePath $run_emacs -ArgumentList $params
 }
 
 function Get-Puml($PumlFile) {
-	Write-Host "Working on $PumlFile"
+     Write-Host "Working on $PumlFile"
     Start-Process -File "java.exe" -ArgumentList "-jar C:\Portable\plantuml\plantuml.jar -charset utf-8 `"$PumlFile`" -tsvg" -Wait
     Start-Process -File "java.exe" -ArgumentList "-jar C:\Portable\plantuml\plantuml.jar -charset utf-8 `"$PumlFile`" -tpng" -Wait
     Start-Process -File "java.exe" -ArgumentList "-jar C:\Portable\plantuml\plantuml.jar -charset utf-8 `"$PumlFile`" -tpdf" -Wait
@@ -65,12 +65,12 @@ function Get-Puml($PumlFile) {
 
 function Get-Slides($MarkdownFile) {
     $stopwatch =  [system.diagnostics.stopwatch]::StartNew()
-	$slides_header = "$env:Pandoc_Datadir\templates\headers\slides.tex"
-	$pandoc_opts = "--slide-level=2 -V aspectratio:169 -V colorlinks"
+    $slides_header = "$env:Pandoc_Datadir\templates\headers\slides.tex"
+    $pandoc_opts = "--slide-level=2 -V aspectratio:169 -V colorlinks"
     $RenderFileName = (Get-Item -Path $MarkdownFile).BaseName + ".pdf"
-	Out-Default $MarkdownFile
+    Out-Default $MarkdownFile
     Start-Process -FilePath "pandoc.exe" -ArgumentList "-f markdown -t beamer -H $slides_header $pandoc_opts -o `"$RenderFileName`" `"$MarkdownFile`"" -NoNewWindow -Wait
-	Out-Default $RenderFileName
+    Out-Default $RenderFileName
     Invoke-Item -Path "$RenderFileName"
     $stopwatch | Select-Object -Property Elapsed
 }
@@ -104,16 +104,16 @@ function Get-MarkdownLorem {
 function Edit-Config {
     [CmdletBinding()]
     param(
-        [PSDefaultValue(Help = 'PowerShellProfile')]
+        [PSDefaultValue(Help = 'PowerShell')]
         [string]
-        $SelectedConfig = 'PowerShellProfile'
+        $SelectedConfig = 'PowerShell'
     )
     $WindowsTerminalConfigFile = $env:USERPROFILE + '\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
     $EmacsConfigOrgFIle = $env:USERPROFILE + '\Documents\git\dotfiles\.emacs.d\Emacs.org'
     $NeovimConfigLua = $env:USERPROFILE + '\AppData\Local\nvim\init.lua'
 
     switch($SelectedConfig) {
-        'PowerShellProfile' {
+        'PowerShell' {
             nvim $PROFILE; Break
         }
         'WindowsTerminal' {
@@ -125,6 +125,14 @@ function Edit-Config {
         'Neovim' {
             nvim $NeovimConfigLua; Break
         }
+        'Help' {
+            Write-Host 'Valid Parameters are:'
+            Write-Host '  PowerShell'
+            Write-Host '  WindowsTerminal'
+            Write-Host '  Emacs'
+            Write-Host '  Neovim'
+        }
     }
 }
+
 Clear-Host
