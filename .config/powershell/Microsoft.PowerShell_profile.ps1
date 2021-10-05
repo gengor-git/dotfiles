@@ -108,9 +108,9 @@ function Edit-Config {
         [string]
         $SelectedConfig = 'PowerShell'
     )
-    $WindowsTerminalConfigFile = '$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
+    $WindowsTerminalConfigFile = $env:LOCALAPPDATA + '\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json'
     $EmacsConfigOrgFIle = $env:USERPROFILE + '\Documents\git\dotfiles\.emacs.d\Emacs.org'
-    $NeovimConfigLua = '$env:LOCALAPPDATA\nvim\init.lua'
+    $NeovimConfigLua = $env:LOCALAPPDATA + '\nvim\init.lua'
 
     switch($SelectedConfig) {
         'PowerShell' {
