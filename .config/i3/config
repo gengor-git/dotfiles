@@ -23,6 +23,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 #font pango:SFNS Display 10
 font pango:SFNS Display 10
+font xft:Source Code Pro Medium 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -130,16 +131,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 Hack "
-set $ws2 "2 Browse "
-set $ws3 "3 "
-set $ws4 "4 "
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws8 "8 VS Code "
-set $ws9 "9 Music "
-set $ws10 "10 Messenger "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -218,6 +219,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 #}
 #
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 
 # floating windows
 for_window [class="Skype"] floating enable
@@ -234,5 +236,7 @@ assign [class="Code"] $ws8
 for_window [class="Spotify"] move to workspace $ws9
 
 # Set wallpaper
-exec_always convert ~/dev/dotfiles/Flat-Remix-Wallpaper.svg -geometry 1920 ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
-exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
+#exec_always convert ~/dev/dotfiles/Flat-Remix-Wallpaper.svg -geometry 1920 ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
+#exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
+exec_always --no-startup-id feh --bg-scale ~/Bilder/Wallhaven.cc/wallhaven-z8dg9y.png
+
