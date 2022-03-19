@@ -11,8 +11,10 @@
 
 # Gaps configuration
 for_window [class="^.*"] border pixel 2
-gaps inner 2
-gaps outer 2
+gaps inner 10
+gaps outer -5
+
+smart_gaps on
 
 # thin borders
 hide_edge_borders both
@@ -84,6 +86,7 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
+focus_follows_mouse no
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -227,19 +230,27 @@ for_window [class="Spotify"] floating enable
 for_window [class="Gpicview"] floating enable
 for_window [class="keepassxc"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="GParted"] floating enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
 
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
 # default workspaces
 assign [class="Spotify"] $ws1
 assign [class="firefox"] $ws2
+assign [class="Code"] $ws3
+assign [class="Gimp-2.10"] $ws5
+assign [class="Inkscape"] $ws5
 assign [class="Skype"] $ws9
-assign [class="Code"] $ws8
 
 # Workaround for Spotify's bad mapping
 for_window [class="Spotify"] move to workspace $ws9
+#
+# Autostart this
+exec --no-startup-id nm-applet
 
 # Set wallpaper
-#exec_always convert ~/dev/dotfiles/Flat-Remix-Wallpaper.svg -geometry 1920 ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
-#exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
 exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/wallhaven-z8dg9y.png
 
