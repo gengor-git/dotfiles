@@ -225,6 +225,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 for_window [class="Skype"] floating enable
 for_window [class="Spotify"] floating enable
 for_window [class="Gpicview"] floating enable
+for_window [class="keepassxc"] floating enable
+for_window [class="KeePassXC"] floating enable
+
 
 # default workspaces
 assign [class="Spotify"] $ws1
@@ -238,5 +241,5 @@ for_window [class="Spotify"] move to workspace $ws9
 # Set wallpaper
 #exec_always convert ~/dev/dotfiles/Flat-Remix-Wallpaper.svg -geometry 1920 ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
 #exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/Flat-Remix-Wallpaper.svg.png
-exec_always --no-startup-id feh --bg-scale ~/Bilder/Wallhaven.cc/wallhaven-z8dg9y.png
+exec_always --no-startup-id feh --bg-scale ~/dev/dotfiles/wallhaven-z8dg9y.png
 
