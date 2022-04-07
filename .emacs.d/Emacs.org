@@ -410,6 +410,14 @@ Python is (apart from Elisp) the main dev-mode for me.
 (use-package yasnippet-snippets)
 #+end_src
 
+
+*** YAML Mode
+We want support for Syntax highlights in YAML files, e.g. for Ansible.
+
+#+begin_src emacs-lisp
+(use-package yaml-mode)
+#+end_src
+
 *** LSP Mode
 Making Emacs more like a full IDE, the language server protocol is what I would like to use for my Python coding.
 
