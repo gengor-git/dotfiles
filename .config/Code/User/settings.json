@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Hasklig, 'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Jetbrains Mono Nerd Font', Hasklig, 'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
   "editor.renderIndentGuides": true,
   "editor.wrappingIndent": "deepIndent",
   "editor.wordWrapColumn": 80,
@@ -61,9 +61,7 @@
   "gitlens.views.repositories.branches.layout": "list",
   "tabnine.experimentalAutoImports": true,
   "editor.cursorSurroundingLines": 10,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+
   "[markdown]": {
     // "editor.defaultFormatter": "yzhang.markdown-all-in-one",
     // "editor.formatOnSave": true,
@@ -73,7 +71,6 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.enableBell": true,
-  "workbench.iconTheme": "material-icon-theme",
   "revealjs.browserPath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
   "revealjs.mouseWheel": true,
   "markdown-preview-enhanced.revealjsTheme": "black.css",
@@ -82,8 +79,7 @@
   "screencastMode.fontSize": 20,
   "plantuml.exportOutDir": "",
   "plantuml.exportSubFolder": false,
-  "workbench.productIconTheme": "fluent-icons",
-  "workbench.colorTheme": "Tinacious Design (Light)",
+
   "dimmer.opacity": 20,
   "workbench.startupEditor": "newUntitledFile",
   "plantuml.render": "Local",
@@ -93,11 +89,11 @@
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "markdown.extension.italic.indicator": "_",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
+
   "terminal.integrated.fontFamily": "MesloLGM NF",
   "terminal.integrated.fontSize": 12,
   "plantuml.jarArgs": [],
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "workbench.iconTheme": "material-icon-theme",
+  "redhat.telemetry.enabled": false,
+  "git.autofetch": true
 }

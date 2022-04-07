@@ -1,4 +1,5 @@
-#+PROPERTY: header-args:emacs-lisp :tangle init-new.el
+#+PROPERTY: header-args:emacs-lisp
+#:tangle init-new.el
 
 :CONTENTS:
 - [[#emacs-configuration][Emacs Configuration]]
@@ -408,6 +409,14 @@ Python is (apart from Elisp) the main dev-mode for me.
 ;; (add-hook 'prog-mode-hook #'yas-minor-mode)
 (yas-global-mode 1)
 (use-package yasnippet-snippets)
+#+end_src
+
+
+*** YAML Mode
+We want support for Syntax highlights in YAML files, e.g. for Ansible.
+
+#+begin_src emacs-lisp
+(use-package yaml-mode)
 #+end_src
 
 *** LSP Mode
