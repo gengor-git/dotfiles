@@ -73,6 +73,8 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 
 (menu-bar-mode -1)          ; Disable the menu bar
 
+(setq scroll-step 1)
+(setq scroll-margin 20)
 
 ;; Set up the visible bell
 (setq visible-bell t)
