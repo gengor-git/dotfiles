@@ -98,8 +98,8 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 ;; You will most likely need to adjust this font size for your system!
 (defvar mcp/default-font-size 130)
 (defvar mcp/default-variable-font-size 130)
-(set-face-attribute 'default nil :font "Cascadia Code PL" :height mcp/default-font-size)
-(set-face-attribute 'font-lock-comment-face nil :font "Cascadia Code PL" :height mcp/default-font-size)
+(set-face-attribute 'default nil :font "JetBrainsMono NF" :height mcp/default-font-size)
+(set-face-attribute 'font-lock-comment-face nil :font "JetBrainsMono NF" :height mcp/default-font-size)
 
 ;; Theme
 (load-theme 'tango-dark)   ; superceded by doom themes later!
