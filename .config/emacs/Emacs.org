@@ -174,7 +174,7 @@ Dashboard should open first
 #+begin_src emacs-lisp
 ;; Themes and nicer mode line
 (use-package doom-themes
-  :init (load-theme 'doom-nord-light t)) ;; doom-one, doom-palenight, doom-moonlight, doom-dracula
+  :init (load-theme 'doom-nord-light t)) ;; doom-one, doom-palenight, doom-moonlight, doom-dracula, doom-monokai-pro
 ;; on first install: M-x all-the-icons-install-fonts
 (use-package all-the-icons)
 (use-package doom-modeline
