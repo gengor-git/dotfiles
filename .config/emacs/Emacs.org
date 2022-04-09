@@ -133,7 +133,37 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 (use-package command-log-mode)
 #+end_src
 
+** Home Screen / Dashboard
+stuff taken from [[https://gitlab.com/dwt1/dotfiles/-/blob/master/.emacs.d.gnu/config.org#dashboard][DT]]
+
+#+begin_src emacs-lisp
+(use-package dashboard
+  :init      ;; tweak dashboard config before loading it
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  ;;(setq dashboard-banner-logo-title "Emacs Is More Than A Text Editor!")
+  (setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
+  ;;(setq dashboard-startup-banner "~/.emacs.d/emacs-dash.png")  ;; use custom image as banner
+  (setq dashboard-center-content nil) ;; set to 't' for centered content
+  (setq dashboard-items '((recents . 5)
+                          (agenda . 5 )
+                          (bookmarks . 3)
+                          (projects . 3)
+                          (registers . 3)))
+  :config
+  (dashboard-setup-startup-hook)
+  (dashboard-modify-heading-icons '((recents . "file-text")
+			      (bookmarks . "book"))))
+#+end_src
+
+Dashboard should open first
+
+#+begin_src emacs-lisp
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+#+end_src
+
 ** Nicer UI
+*** Themes
 #+begin_src emacs-lisp
 ;; Themes and nicer mode line
 (use-package doom-themes
@@ -143,6 +173,11 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
+#+end_src
+*** Emojies
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 #+end_src
 
 ** Ivy, which-key, counsel, helpful
@@ -277,8 +312,8 @@ Evil (vim) mode incl. surround.
   :custom
   (evil-collection-outline-bind-tab-p nil)
   :config
-  (setq evil-collection-mode-list
-        (remove 'lispy evil-collection-mode-list))
+  ;;(setq evil-collection-mode-list '(dashboard dired ibuffer))
+  (setq evil-collection-mode-list (remove 'lispy evil-collection-mode-list))
   (evil-collection-init))
 
 (use-package evil-surround
