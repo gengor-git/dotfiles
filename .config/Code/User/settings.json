@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "'Jetbrains Mono Nerd Font', Hasklig, 'Fira Code', 'Roboto Mono for Powerline', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono NF'",
   "editor.renderIndentGuides": true,
   "editor.wrappingIndent": "deepIndent",
   "editor.wordWrapColumn": 80,
@@ -90,8 +90,7 @@
   "editor.wordWrap": "off",
   "markdown.extension.italic.indicator": "_",
 
-  "terminal.integrated.fontFamily": "MesloLGM NF",
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "'JetBrainsMono NF'",
   "plantuml.jarArgs": [],
   "workbench.iconTheme": "material-icon-theme",
   "redhat.telemetry.enabled": false,
