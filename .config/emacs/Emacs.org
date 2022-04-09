@@ -75,6 +75,13 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 
   (setq scroll-step 1)
   (setq scroll-margin 20)
+  (setq initial-frame-alist
+        (append '((width . 263) (height . 112) (top . -5) (left . 5) (font . "JetBrainsMono NF"))
+                initial-frame-alist))
+
+  (setq default-frame-alist
+        (append '((width . 263) (height . 112) (top . -5) (left . 5) (font . "JetBrainsMono NF"))
+                default-frame-alist))
 
   ;; Set up the visible bell
   (setq visible-bell t)
