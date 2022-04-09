@@ -300,7 +300,7 @@ Evil (vim) mode incl. surround.
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
   (setq evil-respect-visual-line-mode t)
-  (setq evil-undo-system 'undo-tree)
+  ;;(setq evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -328,8 +328,8 @@ Evil (vim) mode incl. surround.
   :config
   (global-evil-surround-mode 1))
 
-(use-package undo-tree)
-(global-undo-tree-mode t)
+;;(use-package undo-tree)
+;;(global-undo-tree-mode t)
 
 #+end_src
 
