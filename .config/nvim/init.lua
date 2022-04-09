@@ -65,16 +65,20 @@ cmd([[colorscheme tokyonight]]) -- Put your favorite colorscheme here
 
 -- basics -------------------------------------------------------------
 g.mapleader = " "
-map('n', '<Leader>fs', ':write<CR>', {noremap = true}) -- quicker save
-map('n', '<C-t>', ':tabnew<CR>', {noremap = true}) -- toggle between tabs
-map('n', '<Leader>bn', ':bn<CR>', {noremap = true}) -- cycle through buffers
-map('n', '<Leader>t', ':tabnext<CR>', {noremap = true})
-map('n', '<Leader>bd', ':bd<CR>', {noremap = true})
+map('n', '<Leader>fs', ':write<CR>', {noremap = true})  -- quicker save
+map('n', '<C-t>', ':tabnew<CR>', {noremap = true})      -- create new tab 
+map('n', '<Leader>bn', ':bn<CR>', {noremap = true})     -- cycle through buffers
+map('n', '<Leader>t', ':tabnext<CR>', {noremap = true}) -- toggle between tabs
+map('n', '<Leader>bd', ':bd<CR>', {noremap = true})     -- delete file
 
 map('n', '<C-h>', '<C-w>h', {noremap = true})
 map('n', '<C-j>', '<C-w>j', {noremap = true})
 map('n', '<C-k>', '<C-w>k', {noremap = true})
 map('n', '<C-l>', '<C-w>l', {noremap = true})
+
+
+map('i', 'jf', '<Esc>', {noremap = true}) -- exit insert more elegantly
+map('i', 'fj', '<Esc>', {noremap = true}) -- exit insert more elegantly
 
 -- lualine ------------------------------------------------------------
 require('lualine').setup({
