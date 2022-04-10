@@ -103,8 +103,8 @@ I mostly work on Windows machines and have different user profiles. Thus I need 
 #+begin_src emacs-lisp
 ;; Font settings
 ;; You will most likely need to adjust this font size for your system!
-(defvar mcp/default-font-size 130)
-(defvar mcp/default-variable-font-size 130)
+(defvar mcp/default-font-size 110)
+(defvar mcp/default-variable-font-size 110)
 (set-face-attribute 'default nil :font "JetBrainsMono NF" :height mcp/default-font-size)
 (set-face-attribute 'font-lock-comment-face nil :font "JetBrainsMono NF" :height mcp/default-font-size)
 
@@ -480,11 +480,6 @@ Making Emacs more like a full IDE, the language server protocol is what I would 
   :config
   (lsp-enable-which-key-integration t))
 
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
 #+end_src
 
 **** LSP UI
@@ -538,21 +533,29 @@ Nicer buffer completion interface.
 *** Python
 
 #+begin_src emacs-lisp
-(use-package python-mode
-  :ensure t
-  :hook (python-mode . lsp-deferred)
-  :custom
-  ;; NOTE: Set these if Python 3 is called "python3" on your system!
-  ;; (python-shell-interpreter "python3")
-  ;; (dap-python-executable "python3")
-  (dap-python-debugger 'debugpy)
-  :config
-  (require 'dap-python))
+        (use-package python-mode
+          :ensure t
+          :hook (python-mode . lsp-deferred)
+          :custom
+          ;; NOTE: Set these if Python 3 is called "python3" on your system!
+          ;; (python-shell-interpreter "python3")
+          ;; (dap-python-executable "python3")
+          (dap-python-debugger 'debugpy)
+          :config
+          (require 'dap-python))
 
-(use-package elpy
-  :ensure t
-  :init
-  (elpy-enable))
+        (use-package elpy
+          :ensure t
+          :defer t
+          :init
+          (advice-add 'python-mode :before 'elpy-enable))
+
+
+      (use-package lsp-pyright
+        :ensure t
+        :hook (python-mode . (lambda ()
+                                (require 'lsp-pyright)
+                                (lsp-deferred))))  ; or lsp-deferred
 #+end_src
 
 **** STARTED Configure Python Code Completion with LSP
