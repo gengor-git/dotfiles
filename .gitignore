@@ -1,2 +1,3 @@
 /.emacs.d/init-new.el
 /**/.*~undo-tree~
+.DS_Store
